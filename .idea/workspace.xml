@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f567b5ec-1354-455f-9025-15f8d320deb0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/KayserMUD.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/localization/Language.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/Control.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/Server.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/Utils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/locales/es_ES/area.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/locales/es_ES/server.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/locales/es_ES/socials.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/constant-values.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/constant-values.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/index-files/index-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index-files/index-1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/index-files/index-10.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index-files/index-10.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/index-files/index-13.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index-files/index-13.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/index-files/index-14.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index-files/index-14.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/index-files/index-15.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index-files/index-15.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/index-files/index-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index-files/index-2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/index-files/index-6.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index-files/index-6.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/index-files/index-8.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index-files/index-8.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/server/Constantes.Direcciones.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/server/Constantes.Direcciones.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/server/Constantes.Estados.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/server/Constantes.Estados.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/server/Constantes.MobProgs.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/server/Constantes.MobProgs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/server/Constantes.PuertaEstado.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/server/Constantes.PuertaEstado.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/server/Constantes.PuertaTipo.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/server/Constantes.PuertaTipo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/server/Constantes.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/server/Constantes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/server/Control.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/server/Control.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/server/MobThread.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/server/MobThread.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/server/PlayerThread.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/server/PlayerThread.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/server/Servidor.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/server/Servidor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/server/class-use/Constantes.Direcciones.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/server/class-use/Constantes.Direcciones.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/server/class-use/Constantes.Estados.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/server/class-use/Constantes.Estados.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/server/class-use/Constantes.MobProgs.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/server/class-use/Constantes.MobProgs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/server/class-use/Constantes.PuertaEstado.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/server/class-use/Constantes.PuertaEstado.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/server/class-use/Constantes.PuertaTipo.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/server/class-use/Constantes.PuertaTipo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/server/class-use/Constantes.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/server/class-use/Constantes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/server/class-use/Servidor.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/server/class-use/Servidor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/world/Habitacio.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/world/Habitacio.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/world/Objeto.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/world/Objeto.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/world/Player.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/world/Player.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/world/Sortida.Direcciones.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/world/Sortida.Direcciones.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/world/Sortida.Estado.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/world/Sortida.Estado.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/world/Sortida.Tipo.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/world/Sortida.Tipo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/world/Sortida.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/world/Sortida.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/world/class-use/Habitacio.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/world/class-use/Habitacio.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/world/class-use/Objeto.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/world/class-use/Objeto.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/world/class-use/Player.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/world/class-use/Player.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/world/class-use/Sortida.Direcciones.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/world/class-use/Sortida.Direcciones.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/world/class-use/Sortida.Estado.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/world/class-use/Sortida.Estado.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/world/class-use/Sortida.Tipo.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/world/class-use/Sortida.Tipo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/world/class-use/Sortida.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/world/class-use/Sortida.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ini/hibernate.cfg.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/configs/Client.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/configs/Servidor.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/configs/TestTreeMap.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/META-INF/orm.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/META-INF/persistence.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/Comando.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/Comando.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/ComandoCombate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/ComandoCombate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/ComandoMirar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/ComandoMirar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/ComandoMover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/ComandoMover.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/ComandoSalidas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/ComandoSalidas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/ComandoSocial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/ComandoSocial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/CommandException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/CommandException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/Interpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/Interpreter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/Social.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/Social.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/comm/ComandoDecir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/comm/ComandoDecir.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/comm/ComandoTelepatia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/comm/ComandoTelepatia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/objs/ComandoCoger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/objs/ComandoCoger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/objs/ComandoDar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/objs/ComandoDar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/objs/ComandoDejar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/objs/ComandoDejar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/objs/ComandoDesvestir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/objs/ComandoDesvestir.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/objs/ComandoEquipo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/objs/ComandoEquipo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/objs/ComandoInventario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/objs/ComandoInventario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/objs/ComandoVestir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/objs/ComandoVestir.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/system/ComandoHelp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/system/ComandoHelp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/system/ComandoQuien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/system/ComandoQuien.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/system/ComandoSalir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/system/ComandoSalir.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/Constantes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/Control.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/MobThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/MobThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/PlayerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/PlayerThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/Servidor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/TestTreeMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/TestTreeMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/world/Container.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/Container.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/world/Gender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/Gender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/world/Habitacio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/world/Objeto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/world/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/world/Race.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/Race.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/world/Sortida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/Exit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/world/Template.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/Template.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1PQGLLtxTbVL4tZxYYZ1chTZqGL" />
+  <component name="ProjectViewState">
+    <option name="flattenPackages" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550592964765" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/locales/es_ES" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f567b5ec-1354-455f-9025-15f8d320deb0" name="Default Changelist" comment="" />
+      <created>1550171312292</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1550171312292</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>

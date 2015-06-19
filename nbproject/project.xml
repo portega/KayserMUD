@@ -5,7 +5,11 @@
         <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
             <name>MUD</name>
             <source-roots>
+<<<<<<< HEAD
                 <root id="src.dir" name="src"/>
+=======
+                <root id="src.src.dir"/>
+>>>>>>> 29917d1... First GitHub version - Java sources
             </source-roots>
             <test-roots/>
         </data>
