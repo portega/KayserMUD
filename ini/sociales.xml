@@ -1,0 +1,40 @@
+<SOCIALS>
+	<SOCIAL NAME="bounce">
+	  <ACT_NOTARG>BOIINNNNNNGG!</ACT_NOTARG>
+	  <PER_NOTARG>$n bounces around with a happy smile.</PER_NOTARG>
+	  <ACT_BADTARG>You don't see your plaything.</ACT_BADTARG>
+	  <ACT_ACTTARG>You bounce your head like a basketball.</ACT_ACTTARG>
+	  <PER_ACTTARG>$n plays basketball with $s head.</PER_ACTTARG>
+	  <ACTOR>You bounce onto $S lap and wiggle about.</ACTOR>
+	  <TARGET>$n bounces onto your lap and wiggles about.</TARGET>
+	  <PEERS>$n bounces onto $N's lap and wiggles about.</PEERS>
+	</SOCIAL>
+	<SOCIAL NAME="smile">
+	  <ACT_NOTARG>You smile happily.</ACT_NOTARG>
+	  <PER_NOTARG>$n smiles happily.</PER_NOTARG>
+	  <ACT_BADTARG>There's no one by that name around.</ACT_BADTARG>
+	  <ACT_ACTTARG>You smile at yourself.</ACT_ACTTARG>
+	  <PER_ACTTARG>$n smiles at $mself.</PER_ACTTARG>
+	  <ACTOR>You smile at $M.</ACTOR>
+	  <TARGET>$n smiles at you.</TARGET>
+	  <PEERS>$n beams a smile at $N.</PEERS>
+	</SOCIAL>
+	<SOCIAL NAME="waggle">
+		<ALLOW RACE="minotaur;" />
+		<ACT_NOTARG>You waggle your eyebrows as only a minotaur can.</ACT_NOTARG>
+		<PER_NOTARG>$n waggles $s eyebrows as only a minotaur can.</PER_NOTARG>
+		<ACTOR>You waggle your $r eyebrows at $N.</ACTOR>
+		<PEERS>$n waggles $s $r eyebrows at $N.</PEERS>
+		<TARGET>$n waggles $s $r eyebrows at you.</TARGET>
+	</SOCIAL>
+	<SOCIAL NAME="strut">
+		<ALLOW GENDER="male;" />
+		<ACT_NOTARG>You strut like the kind of man you are.</ACT_NOTARG>
+		<PER_NOTARG>$n struts in a very manly manner.</PER_NOTARG>
+	</SOCIAL>
+	<SOCIAL NAME="strut">
+		<ALLOW GENDER="female;" />
+		<ACT_NOTARG>You strut your hot stuff.</ACT_NOTARG>
+		<PER_NOTARG>$n struts, showing off her 'goods'.</PER_NOTARG>
+	</SOCIAL>
+</SOCIALS>
