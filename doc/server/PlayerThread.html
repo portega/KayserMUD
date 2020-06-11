@@ -189,7 +189,7 @@ Class PlayerThread</H2>
 <B>Constructor Summary</B></FONT></TH>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE><B><A HREF="../server/PlayerThread.html#PlayerThread(java.net.Socket, world.Habitacio, world.Player)">PlayerThread</A></B>(<A HREF="http://java.sun.com/javase/6/docs/api/java/net/Socket.html?is-external=true" title="class or interface in java.net">Socket</A>&nbsp;socket,
+<TD><CODE><B><A HREF="../server/PlayerThread.html#PlayerThread(java.net.Socket, world.Room, world.Player)">PlayerThread</A></B>(<A HREF="http://java.sun.com/javase/6/docs/api/java/net/Socket.html?is-external=true" title="class or interface in java.net">Socket</A>&nbsp;socket,
              <A HREF="../world/Habitacio.html" title="class in world">Habitacio</A>&nbsp;inicio,
              <A HREF="../world/Player.html" title="class in world">Player</A>&nbsp;p)</CODE>
 
@@ -253,7 +253,7 @@ Class PlayerThread</H2>
 <TH ALIGN="left"><B>Methods inherited from class server.<A HREF="../server/Control.html" title="class in server">Control</A></B></TH>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE><A HREF="../server/Control.html#finish()">finish</A>, <A HREF="../server/Control.html#getDiccionari()">getDiccionari</A>, <A HREF="../server/Control.html#getHabitacio()">getHabitacio</A>, <A HREF="../server/Control.html#getPlayer()">getPlayer</A>, <A HREF="../server/Control.html#setDiccionari(commands.Interpreter)">setDiccionari</A>, <A HREF="../server/Control.html#setHabitacio(world.Habitacio)">setHabitacio</A>, <A HREF="../server/Control.html#setPlayer(world.Player)">setPlayer</A></CODE></TD>
+<TD><CODE><A HREF="../server/Control.html#finish()">finish</A>, <A HREF="../server/Control.html#getDiccionari()">getDiccionari</A>, <A HREF="../server/Control.html#getHabitacio()">getHabitacio</A>, <A HREF="../server/Control.html#getPlayer()">getPlayer</A>, <A HREF="../server/Control.html#setDiccionari(commands.Interpreter)">setDiccionari</A>, <A HREF="../server/Control.html#setHabitacio(world.Room)">setHabitacio</A>, <A HREF="../server/Control.html#setPlayer(world.Player)">setPlayer</A></CODE></TD>
 </TR>
 </TABLE>
 &nbsp;<A NAME="methods_inherited_from_class_java.lang.Thread"><!-- --></A>
@@ -326,7 +326,7 @@ private <A HREF="http://java.sun.com/javase/6/docs/api/java/lang/String.html?is-
 </TR>
 </TABLE>
 
-<A NAME="PlayerThread(java.net.Socket, world.Habitacio, world.Player)"><!-- --></A><H3>
+<A NAME="PlayerThread(java.net.Socket, world.Room, world.Player)"><!-- --></A><H3>
 PlayerThread</H3>
 <PRE>
 public <B>PlayerThread</B>(<A HREF="http://java.sun.com/javase/6/docs/api/java/net/Socket.html?is-external=true" title="class or interface in java.net">Socket</A>&nbsp;socket,

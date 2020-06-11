@@ -197,7 +197,7 @@ Class MobThread</H2>
 <B>Constructor Summary</B></FONT></TH>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE><B><A HREF="../server/MobThread.html#MobThread(world.Player, world.Habitacio)">MobThread</A></B>(<A HREF="../world/Player.html" title="class in world">Player</A>&nbsp;p,
+<TD><CODE><B><A HREF="../server/MobThread.html#MobThread(world.Player, world.Room)">MobThread</A></B>(<A HREF="../world/Player.html" title="class in world">Player</A>&nbsp;p,
           <A HREF="../world/Habitacio.html" title="class in world">Habitacio</A>&nbsp;h)</CODE>
 
 <BR>
@@ -216,11 +216,11 @@ Class MobThread</H2>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
 <CODE>&nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../server/MobThread.html#addProg(server.Constantes.MobProgs, java.lang.String)">addProg</A></B>(<A HREF="../server/Constantes.MobProgs.html" title="enum in server">Constantes.MobProgs</A>&nbsp;tipo,
+<TD><CODE><B><A HREF="../server/MobThread.html#addProg(server.Constants.MobProgs, java.lang.String)">addProg</A></B>(<A HREF="../server/Constantes.MobProgs.html" title="enum in server">Constantes.MobProgs</A>&nbsp;tipo,
         <A HREF="http://java.sun.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;prog)</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Añade un mobprog del tipo indicado</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aï¿½ade un mobprog del tipo indicado</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -236,7 +236,7 @@ Class MobThread</H2>
 <TD><CODE><B><A HREF="../server/MobThread.html#exec(java.lang.String[])">exec</A></B>(<A HREF="http://java.sun.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>[]&nbsp;ordenes)</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ejecuta una serie de órdenes, con sintaxis de consola</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ejecuta una serie de ï¿½rdenes, con sintaxis de consola</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -252,12 +252,12 @@ Class MobThread</H2>
 <TD><CODE><B><A HREF="../server/MobThread.html#getScript()">getScript</A></B>()</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Devuelve el listado de órdenes de la rutina del mob, si tiene</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Devuelve el listado de ï¿½rdenes de la rutina del mob, si tiene</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
 <CODE>private &nbsp;<A HREF="http://java.sun.com/javase/6/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../server/MobThread.html#run_progs(server.Constantes.MobProgs, world.Player)">run_progs</A></B>(<A HREF="../server/Constantes.MobProgs.html" title="enum in server">Constantes.MobProgs</A>&nbsp;tipo,
+<TD><CODE><B><A HREF="../server/MobThread.html#run_progs(server.Constants.MobProgs, world.Player)">run_progs</A></B>(<A HREF="../server/Constantes.MobProgs.html" title="enum in server">Constantes.MobProgs</A>&nbsp;tipo,
           <A HREF="../world/Player.html" title="class in world">Player</A>&nbsp;target)</CODE>
 
 <BR>
@@ -302,7 +302,7 @@ Class MobThread</H2>
 <TH ALIGN="left"><B>Methods inherited from class server.<A HREF="../server/Control.html" title="class in server">Control</A></B></TH>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE><A HREF="../server/Control.html#finish()">finish</A>, <A HREF="../server/Control.html#getDiccionari()">getDiccionari</A>, <A HREF="../server/Control.html#getHabitacio()">getHabitacio</A>, <A HREF="../server/Control.html#getPlayer()">getPlayer</A>, <A HREF="../server/Control.html#setDiccionari(commands.Interpreter)">setDiccionari</A>, <A HREF="../server/Control.html#setHabitacio(world.Habitacio)">setHabitacio</A>, <A HREF="../server/Control.html#setPlayer(world.Player)">setPlayer</A></CODE></TD>
+<TD><CODE><A HREF="../server/Control.html#finish()">finish</A>, <A HREF="../server/Control.html#getDiccionari()">getDiccionari</A>, <A HREF="../server/Control.html#getHabitacio()">getHabitacio</A>, <A HREF="../server/Control.html#getPlayer()">getPlayer</A>, <A HREF="../server/Control.html#setDiccionari(commands.Interpreter)">setDiccionari</A>, <A HREF="../server/Control.html#setHabitacio(world.Room)">setHabitacio</A>, <A HREF="../server/Control.html#setPlayer(world.Player)">setPlayer</A></CODE></TD>
 </TR>
 </TABLE>
 &nbsp;<A NAME="methods_inherited_from_class_java.lang.Thread"><!-- --></A>
@@ -431,7 +431,7 @@ public void <B>send</B>(<A HREF="http://java.sun.com/javase/6/docs/api/java/lang
 </DL>
 <HR>
 
-<A NAME="run_progs(server.Constantes.MobProgs, world.Player)"><!-- --></A><H3>
+<A NAME="run_progs(server.Constants.MobProgs, world.Player)"><!-- --></A><H3>
 run_progs</H3>
 <PRE>
 private <A HREF="http://java.sun.com/javase/6/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</A> <B>run_progs</B>(<A HREF="../server/Constantes.MobProgs.html" title="enum in server">Constantes.MobProgs</A>&nbsp;tipo,
@@ -467,7 +467,7 @@ getScript</H3>
 <PRE>
 public <A HREF="http://java.sun.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>[] <B>getScript</B>()</PRE>
 <DL>
-<DD>Devuelve el listado de órdenes de la rutina del mob, si tiene
+<DD>Devuelve el listado de ï¿½rdenes de la rutina del mob, si tiene
 <P>
 <DD><DL>
 
@@ -516,13 +516,13 @@ public void <B>setIntervalo</B>(int&nbsp;intervalo)</PRE>
 </DL>
 <HR>
 
-<A NAME="addProg(server.Constantes.MobProgs, java.lang.String)"><!-- --></A><H3>
+<A NAME="addProg(server.Constants.MobProgs, java.lang.String)"><!-- --></A><H3>
 addProg</H3>
 <PRE>
 public void <B>addProg</B>(<A HREF="../server/Constantes.MobProgs.html" title="enum in server">Constantes.MobProgs</A>&nbsp;tipo,
                     <A HREF="http://java.sun.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;prog)</PRE>
 <DL>
-<DD>Añade un mobprog del tipo indicado
+<DD>Aï¿½ade un mobprog del tipo indicado
 <P>
 <DD><DL>
 <DT><B>Parameters:</B><DD><CODE>tipo</CODE> - Tipo de mobprog<DD><CODE>prog</CODE> - Script del mobprog</DL>
@@ -535,10 +535,10 @@ exec</H3>
 <PRE>
 public void <B>exec</B>(<A HREF="http://java.sun.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>[]&nbsp;ordenes)</PRE>
 <DL>
-<DD>Ejecuta una serie de órdenes, con sintaxis de consola
+<DD>Ejecuta una serie de ï¿½rdenes, con sintaxis de consola
 <P>
 <DD><DL>
-<DT><B>Parameters:</B><DD><CODE>ordenes</CODE> - Array con las órdenes</DL>
+<DT><B>Parameters:</B><DD><CODE>ordenes</CODE> - Array con las ï¿½rdenes</DL>
 </DD>
 </DL>
 <HR>

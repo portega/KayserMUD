@@ -1,0 +1,42 @@
+{
+  "socials": [
+    {
+      "name": "botar",
+      "ACT_NOTARG": "BOIINNNNNNGG!",
+      "ACT_BADTARG": "You don't see your plaything.",
+      "ACT_ACTTARG": "You bounce your head like a basketball.",
+      "PER_NOTARG": "$n bounces around with a happy smile.",
+      "PER_ACTTARG": "You bounce your head like a basketball."
+      "ACTOR": "You bounce onto $S lap and wiggle about.",
+      "TARGET": "$n bounces onto your lap and wiggles about.",
+      "PEERS": "$n bounces onto $N's lap and wiggles about."
+    },
+    {
+      "name": "waggle",
+      "allow": {
+        "race": ["minotaur"]
+      },
+      "ACT_NOTARG": "You waggle your eyebrows as only a minotaur can.",
+      "PER_NOTARG": "$n waggles $s eyebrows as only a minotaur can.",
+      "ACTOR": "You waggle your $r eyebrows at $N.",
+      "PEERS": "$n waggles $s $r eyebrows at $N.",
+      "TARGET": "$n waggles $s $r eyebrows at you."
+    },
+    {
+      "name": "strut",
+      "allow": {
+        "gender": ["male"]
+      },
+      "ACT_NOTARG": "You strut like the kind of man you are.",
+      "PER_NOTARG": "$n struts in a very manly manner."
+    },
+    {
+      "name": "strut",
+      "allow": {
+        "gender": ["female"]
+      },
+      "ACT_NOTARG": "You strut your hot stuff.",
+      "PER_NOTARG": "$n struts, showing off her 'goods'"
+    }
+  ]
+}

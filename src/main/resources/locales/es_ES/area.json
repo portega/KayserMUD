@@ -1,0 +1,83 @@
+{
+  "rooms": [
+    {
+      "vnum": 8001,
+      "short_desc": "Inicio",
+      "long_desc": "Una pequeña habitación con una salida al norte",
+      "exits": [
+        {
+          "exit": "north",
+          "vnum": 8002
+        }
+      ],
+      "items": [
+        {
+          "vnum": 9001,
+          "name": "piedra",
+          "desc": "Una simple y miserable piedra"
+        },
+        {
+          "vnum": 9002,
+          "name": "seta",
+          "desc": "Una seta mágica"
+        }
+      ]
+    },
+    {
+      "vnum": 8002,
+      "short_desc": "Segunda habitación",
+      "long_desc": "Una pequeña habitación igual que la anterior",
+      "exits": [
+        {
+          "exit": "north",
+          "vnum": 8003
+        },
+        {
+          "exit": "south",
+          "vnum": 8001
+        },
+        {
+          "exit": "east",
+          "vnum": 8004
+        },
+        {
+          "exit": "west",
+          "vnum": 8005
+        }
+      ]
+    },
+    {
+      "vnum": 8003,
+      "short_desc": "Otra habitación",
+      "long_desc": "Una pequeña habitación igual que la anterior",
+      "exits": [
+        {
+          "exit": "south",
+          "vnum": 8002
+        }
+      ]
+    },
+    {
+      "vnum": 8004,
+      "short_desc": "Otra habitación",
+      "long_desc": "Una pequeña habitación igual que la anterior",
+      "exits": [
+        {
+          "exit": "west",
+          "vnum": 8002
+        }
+      ]
+    },
+    {
+      "vnum": 8005,
+      "short_desc": "Otra habitación",
+      "long_desc": "Una pequeña habitación igual que la anterior",
+      "exits": [
+        {
+          "exit": "east",
+          "vnum": 8002
+        }
+      ]
+    }
+  ]
+}
