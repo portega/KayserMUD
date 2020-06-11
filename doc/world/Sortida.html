@@ -93,7 +93,7 @@ world</FONT>
 Class Sortida</H2>
 <PRE>
 <A HREF="http://java.sun.com/javase/6/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</A>
-  <IMG SRC="../resources/inherit.gif" ALT="extended by "><B>world.Sortida</B>
+  <IMG SRC="../resources/inherit.gif" ALT="extended by "><B>world.Exit</B>
 </PRE>
 <HR>
 <DL>
@@ -180,7 +180,7 @@ Class Sortida</H2>
 <B>Constructor Summary</B></FONT></TH>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE><B><A HREF="../world/Sortida.html#Sortida(world.Habitacio, world.Habitacio)">Sortida</A></B>(<A HREF="../world/Habitacio.html" title="class in world">Habitacio</A>&nbsp;or,
+<TD><CODE><B><A HREF="../world/Sortida.html#Sortida(world.Room, world.Room)">Sortida</A></B>(<A HREF="../world/Habitacio.html" title="class in world">Habitacio</A>&nbsp;or,
         <A HREF="../world/Habitacio.html" title="class in world">Habitacio</A>&nbsp;dest)</CODE>
 
 <BR>
@@ -199,7 +199,7 @@ Class Sortida</H2>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
 <CODE>&nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../world/Sortida.html#addTipo(world.Sortida.Tipo)">addTipo</A></B>(<A HREF="../world/Sortida.Tipo.html" title="enum in world">Sortida.Tipo</A>&nbsp;t)</CODE>
+<TD><CODE><B><A HREF="../world/Sortida.html#addTipo(world.Exit.Tipo)">addTipo</A></B>(<A HREF="../world/Sortida.Tipo.html" title="enum in world">Sortida.Tipo</A>&nbsp;t)</CODE>
 
 <BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
@@ -223,7 +223,7 @@ Class Sortida</H2>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
 <CODE>static&nbsp;<A HREF="../world/Sortida.Direcciones.html" title="enum in world">Sortida.Direcciones</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../world/Sortida.html#inversa(world.Sortida.Direcciones)">inversa</A></B>(<A HREF="../world/Sortida.Direcciones.html" title="enum in world">Sortida.Direcciones</A>&nbsp;s)</CODE>
+<TD><CODE><B><A HREF="../world/Sortida.html#inversa(world.Exit.Direcciones)">inversa</A></B>(<A HREF="../world/Sortida.Direcciones.html" title="enum in world">Sortida.Direcciones</A>&nbsp;s)</CODE>
 
 <BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
@@ -231,7 +231,7 @@ Class Sortida</H2>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
 <CODE>&nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../world/Sortida.html#setDestino(world.Habitacio)">setDestino</A></B>(<A HREF="../world/Habitacio.html" title="class in world">Habitacio</A>&nbsp;destino)</CODE>
+<TD><CODE><B><A HREF="../world/Sortida.html#setDestino(world.Room)">setDestino</A></B>(<A HREF="../world/Habitacio.html" title="class in world">Habitacio</A>&nbsp;destino)</CODE>
 
 <BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
@@ -239,7 +239,7 @@ Class Sortida</H2>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
 <CODE>&nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../world/Sortida.html#setOrigen(world.Habitacio)">setOrigen</A></B>(<A HREF="../world/Habitacio.html" title="class in world">Habitacio</A>&nbsp;origen)</CODE>
+<TD><CODE><B><A HREF="../world/Sortida.html#setOrigen(world.Room)">setOrigen</A></B>(<A HREF="../world/Habitacio.html" title="class in world">Habitacio</A>&nbsp;origen)</CODE>
 
 <BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
@@ -306,7 +306,7 @@ private <A HREF="http://java.sun.com/javase/6/docs/api/java/util/Vector.html?is-
 </TR>
 </TABLE>
 
-<A NAME="Sortida(world.Habitacio, world.Habitacio)"><!-- --></A><H3>
+<A NAME="Sortida(world.Room, world.Habitacio)"><!-- --></A><H3>
 Sortida</H3>
 <PRE>
 public <B>Sortida</B>(<A HREF="../world/Habitacio.html" title="class in world">Habitacio</A>&nbsp;or,
@@ -368,7 +368,7 @@ public void <B>setDestino</B>(<A HREF="../world/Habitacio.html" title="class in 
 </DL>
 <HR>
 
-<A NAME="addTipo(world.Sortida.Tipo)"><!-- --></A><H3>
+<A NAME="addTipo(world.Exit.Tipo)"><!-- --></A><H3>
 addTipo</H3>
 <PRE>
 public void <B>addTipo</B>(<A HREF="../world/Sortida.Tipo.html" title="enum in world">Sortida.Tipo</A>&nbsp;t)</PRE>
@@ -379,7 +379,7 @@ public void <B>addTipo</B>(<A HREF="../world/Sortida.Tipo.html" title="enum in w
 </DL>
 <HR>
 
-<A NAME="inversa(world.Sortida.Direcciones)"><!-- --></A><H3>
+<A NAME="inversa(world.Exit.Direcciones)"><!-- --></A><H3>
 inversa</H3>
 <PRE>
 public static <A HREF="../world/Sortida.Direcciones.html" title="enum in world">Sortida.Direcciones</A> <B>inversa</B>(<A HREF="../world/Sortida.Direcciones.html" title="enum in world">Sortida.Direcciones</A>&nbsp;s)</PRE>

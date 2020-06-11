@@ -1,0 +1,5 @@
+{
+  "init": "Iniciando servidor",
+  "ready": "Server listo, esperando jugadores",
+  "port.error": "Imposible arrancar en puerto: "
+}
