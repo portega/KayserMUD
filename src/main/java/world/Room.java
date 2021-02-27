@@ -8,32 +8,48 @@ import java.util.List;
 import world.Exit.Direcciones;
 
 public class Room extends Template {
-	private HashMap<Direcciones, Room> sortides;
+
+	public HashMap<Direcciones, Room> getSalidas() {
+		return salidas;
+	}
+
+	public void setSalidas(HashMap<Direcciones, Room> salidas) {
+		this.salidas = salidas;
+	}
+
+	private HashMap<Direcciones, Room> salidas;
 	private Container<Template> contenido;
 	private Container<Player> habitantes;
 	private int moveCost = 1;
 	
 	public Room() {
-		sortides = new HashMap<Exit.Direcciones, Room>();
+		super();
+		salidas = new HashMap<Exit.Direcciones, Room>();
 		contenido = new Container<Template>(this);
 		habitantes = new Container<Player>(this);
 	}
 
+	public Room(String name, String description) {
+		this();
+		setNombre(name);
+		setDescripcion(description);
+	}
+
 	public void setSortida(Room h, Exit.Direcciones s) {
-		if (sortides.get(s) == null) {
-			sortides.put(s, h);
+		if (salidas.get(s) == null) {
+			salidas.put(s, h);
 			h.setSortida(this, Exit.inversa(s));
 		}
 	}
 	
 	public Room getSortida(Exit.Direcciones s) {
-		if (sortides.get(s) != null) return sortides.get(s);
+		if (salidas.get(s) != null) return salidas.get(s);
 		else return null;
 	}
 	
 	public String llistaSortides() {
 		String txt = "[";
-		for (Exit.Direcciones e : sortides.keySet()) {
+		for (Exit.Direcciones e : salidas.keySet()) {
 			txt += e+", ";
 		}
 		txt = txt.substring(0,txt.length()-2)+"]";
@@ -137,6 +153,5 @@ public class Room extends Template {
     public String toString() {
         return this.getDescripcion();
     }
-
 
 }

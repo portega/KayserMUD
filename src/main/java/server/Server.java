@@ -33,6 +33,7 @@ public class Server {
     private static Timer timer;
     private static int puerto = 4000;
     private static HashMap<String, Player> pjs_conectados;
+    private static TreeMap<String, Social> socials;
 
     public static void main(String[] args) throws IOException {
         ServerSocket serverSocket;
@@ -40,62 +41,79 @@ public class Server {
         Room hab_actual;
         boolean listening = true;
         String locale;
-        Language language;
         JsonNode config;
         int port;
 
         config = loadJSON(Server.class, "config.json");
         port = config.get("port").asInt();
         locale = config.get("locale").asText();
-        language = new Language(locale);
+        socials = loadSocials();
 
         try {
             serverSocket = new ServerSocket(port);
-            System.out.println(language.get("init"));
+            System.out.println("Starting server, port " + port);
             setTimer(new Timer());
-            hab_actual = loadRooms(language);
+            hab_actual = loadRooms();
             pjs_conectados = new HashMap<String, Player>();
-            System.out.println(language.get("ready"));
+            System.out.println("Server ready, waiting players");
             while (listening) {
                 clientSocket = serverSocket.accept();
-                crea_jugador(clientSocket, hab_actual, language);
+                crea_jugador(clientSocket, hab_actual);
             }
             getTimer().cancel();
             serverSocket.close();
         } catch (IOException e) {
-            System.err.println(language.get("port.error") + puerto + ". "+e.getMessage());
+            System.err.println("Error starting on port: " + puerto + ". "+e.getMessage());
             System.exit(-1);
         }
     }
 
-    public static Room loadRooms(Language language) {
-        JsonNode area = Utils.loadJSON(Server.class, language.getLocale()+"/area.json");
+    public static Room loadRooms() {
+        JsonNode area = Utils.loadJSON(Server.class, "area.json");
         ArrayNode rooms = (ArrayNode)area.get("rooms");
 
         Room first_room = null, current;
-        HashMap<Integer, Room> rooms_list = new HashMap<Integer, Room>();
+        HashMap<Integer, Room> rooms_list = new HashMap<>();
         for (JsonNode node: rooms) {
-            current = readRoom(node);
+            current = readRoom(node, rooms_list);
             if (first_room == null) first_room = current;
+            if (rooms_list.containsKey(current.getVnumAsInteger())) {
+                current.getSalidas().putAll(rooms_list.get(current.getVnumAsInteger()).getSalidas());
+            }
             rooms_list.put(current.getVnumAsInteger(), current);
         }
 
         return first_room;
     }
 
-    public static Room readRoom(JsonNode node) {
+    public static Room readRoom(JsonNode node, HashMap<Integer, Room> rooms_list) {
         Room r = new Room();
         r.setNombre(node.get("short_desc").asText());
         r.setDescripcion(node.get("long_desc").asText());
         r.setVnum(node.get("vnum").asInt());
+        ArrayNode arrayNode = (ArrayNode) node.get("exits");
+        for(int i = 0; i < arrayNode.size(); i++) {
+            JsonNode arrayElement = arrayNode.get(i);
+            int vnum = arrayElement.get("vnum").asInt();
+            String direction = arrayElement.get("exit").asText();
+            Room r2;
+            if (rooms_list.containsKey(vnum)) {
+                r2 = rooms_list.get(vnum);
+            } else {
+                r2 = new Room();
+                r2.setVnum(vnum);
+                rooms_list.put(vnum, r2);
+            }
+            r.setSortida(r2, Exit.Direcciones.valueOf(direction.toUpperCase()));
+        }
 
         return r;
     }
 
-    public static TreeMap<String, Social> loadSocials(Language language) {
-        TreeMap<String, Social> socials = new TreeMap<String, Social>();
+    public static TreeMap<String, Social> loadSocials() {
+        TreeMap<String, Social> socials = new TreeMap<>();
         try {
-            JsonNode list = loadJSON(Server.class, language.getLocale()+"/socials.json");
+            JsonNode list = loadJSON(Server.class, "socials.json");
             ArrayNode socialArray = (ArrayNode)list.get("socials");
             for (JsonNode node : socialArray){
                 socials.put(node.get("name").asText(), cargarSocial(node));
@@ -160,7 +178,7 @@ public class Server {
         ctl_guardia.start();
     }
 
-    public static void crea_jugador(Socket clientSocket, Room hab_actual, Language language) {
+    public static void crea_jugador(Socket clientSocket, Room hab_actual) {
         int num_players = pjs_conectados.size();
         String nombre = "Jugador " + num_players;
         Player p = new Player();
@@ -178,8 +196,7 @@ public class Server {
         pjs_conectados.put(nombre, p);
 
         PlayerThread pt = new PlayerThread(clientSocket, hab_actual, p);
-        pt.setLanguage(language);
-        pt.setSocials(loadSocials(language));
+        pt.setSocials(socials);
         pt.start();
         System.out.println("Aceptado cliente " + p.getNombre());
     }

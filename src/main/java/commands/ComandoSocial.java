@@ -9,7 +9,7 @@ public class ComandoSocial implements Comando {
 	public String execute(Player p, String args) throws CommandException {
 		String[] params = args.split(" ");
 		String player_msg = "", txt;
-		Social s = Social.getSocial(params[0]);
+		Social s = p.getControl().getSocial(params[0]);
 		
 		if (s == null) return "Eso no lo entiendo";
 

@@ -38,7 +38,7 @@ public class MobThread extends Control {
 	@Override
 	public void send(String mensaje) {
 		String target = mensaje.split(" ")[0];
-		Player ptarget = hab_actual.findPlayer(target);
+		Player ptarget = currentRoom.findPlayer(target);
 		if (mensaje.indexOf("te dice") > 0) {
 			run_progs(Constants.MobProgs.SPEECH, ptarget);
 		} else if (mensaje.indexOf("te da") > 0) {

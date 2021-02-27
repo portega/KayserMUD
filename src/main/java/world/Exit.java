@@ -4,7 +4,7 @@ import java.util.Vector;
 
 
 public class Exit {
-	public static enum Direcciones {NORTE, ESTE, OESTE, SUR, ARRIBA, ABAJO};
+	public static enum Direcciones {NORTH, EAST, WEST, SOUTH, UP, DOWN};
 	public static enum Estado {ABIERTA, CERRADA, BLOQUEADA};
 	public static enum Tipo {NO_PASS, INVIS, HIDDEN};
 	
@@ -39,17 +39,17 @@ public class Exit {
 	public static Direcciones inversa(Direcciones s) {
 		Direcciones result = null;
 		switch (s) {
-		case NORTE: result = Direcciones.SUR;
+		case NORTH: result = Direcciones.SOUTH;
 		break;
-		case SUR: result = Direcciones.NORTE;
+		case SOUTH: result = Direcciones.NORTH;
 		break;
-		case ESTE: result = Direcciones.OESTE;
+		case EAST: result = Direcciones.WEST;
 		break;
-		case OESTE: result = Direcciones.ESTE;
+		case WEST: result = Direcciones.EAST;
 		break;
-		case ARRIBA: result = Direcciones.ABAJO;
+		case UP: result = Direcciones.DOWN;
 		break;
-		case ABAJO: result = Direcciones.ARRIBA;
+		case DOWN: result = Direcciones.UP;
 		break;
 		}
 		return result;

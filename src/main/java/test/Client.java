@@ -61,10 +61,10 @@ public class Client implements ActionListener {
 		
 		hab_actual = new Room("Inici", "Una petita habitaci\u00f2 amb una sortida al nord");
 		h = new Room("Segona habitacio", txt);
-		hab_actual.setSortida(h, Exit.Direcciones.NORTE);
-		h.setSortida(new Room("Room nord", txt), Exit.Direcciones.NORTE);
-		h.setSortida(new Room("Room est", txt), Exit.Direcciones.ESTE);
-		h.setSortida(new Room("Room oest", txt), Exit.Direcciones.OESTE);
+		hab_actual.setSortida(h, Exit.Direcciones.NORTH);
+		h.setSortida(new Room("Room nord", txt), Exit.Direcciones.NORTH);
+		h.setSortida(new Room("Room est", txt), Exit.Direcciones.EAST);
+		h.setSortida(new Room("Room oest", txt), Exit.Direcciones.WEST);
 	}
 	
     @Override
@@ -76,16 +76,16 @@ public class Client implements ActionListener {
 		for (i=0; i<comandes.length; i++) {
 			if (comandes[i].startsWith(txt)) {
 				switch(i) {
-				case 0: hab_actual = hab_actual.getSortida(Exit.Direcciones.NORTE);
+				case 0: hab_actual = hab_actual.getSortida(Exit.Direcciones.NORTH);
 				output.setText(hab_actual.toString());
 				break;
-				case 1: hab_actual = hab_actual.getSortida(Exit.Direcciones.SUR);
+				case 1: hab_actual = hab_actual.getSortida(Exit.Direcciones.SOUTH);
 				output.setText(hab_actual.toString());
 				break;
-				case 2: hab_actual = hab_actual.getSortida(Exit.Direcciones.ESTE);
+				case 2: hab_actual = hab_actual.getSortida(Exit.Direcciones.EAST);
 				output.setText(hab_actual.toString());
 				break;
-				case 3: hab_actual = hab_actual.getSortida(Exit.Direcciones.OESTE);
+				case 3: hab_actual = hab_actual.getSortida(Exit.Direcciones.WEST);
 				output.setText(hab_actual.toString());
 				break;
 				case 4:

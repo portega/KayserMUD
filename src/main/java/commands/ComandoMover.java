@@ -14,12 +14,12 @@ public class ComandoMover implements Comando {
 		Room h, nova_hab;
 
 		h = (Room)p.getContenedor();
-		if (args.startsWith("e")) nova_hab = h.getSortida(Direcciones.ESTE);
-		else if (args.startsWith("o")) nova_hab = h.getSortida(Direcciones.OESTE);
-		else if (args.startsWith("n")) nova_hab = h.getSortida(Direcciones.NORTE);
-		else if (args.startsWith("s")) nova_hab = h.getSortida(Direcciones.SUR);
-		else if (args.startsWith("ab")) nova_hab = h.getSortida(Direcciones.ABAJO);
-		else if (args.startsWith("a")) nova_hab = h.getSortida(Direcciones.ARRIBA);
+		if (args.startsWith("e")) nova_hab = h.getSortida(Direcciones.EAST);
+		else if (args.startsWith("o")) nova_hab = h.getSortida(Direcciones.WEST);
+		else if (args.startsWith("n")) nova_hab = h.getSortida(Direcciones.NORTH);
+		else if (args.startsWith("s")) nova_hab = h.getSortida(Direcciones.SOUTH);
+		else if (args.startsWith("ab")) nova_hab = h.getSortida(Direcciones.DOWN);
+		else if (args.startsWith("a")) nova_hab = h.getSortida(Direcciones.UP);
 		else return "No puedes moverte alli";
 		
 		if (nova_hab != null) {

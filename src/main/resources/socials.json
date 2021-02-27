@@ -6,7 +6,7 @@
       "ACT_BADTARG": "You don't see your plaything.",
       "ACT_ACTTARG": "You bounce your head like a basketball.",
       "PER_NOTARG": "$n bounces around with a happy smile.",
-      "PER_ACTTARG": "You bounce your head like a basketball."
+      "PER_ACTTARG": "You bounce your head like a basketball.",
       "ACTOR": "You bounce onto $S lap and wiggle about.",
       "TARGET": "$n bounces onto your lap and wiggles about.",
       "PEERS": "$n bounces onto $N's lap and wiggles about."

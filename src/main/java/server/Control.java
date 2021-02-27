@@ -9,7 +9,7 @@ import world.Player;
 import commands.Interpreter;
 
 public abstract class Control extends Thread {
-	protected Room hab_actual;
+	protected Room currentRoom;
 	protected Player player;
 	protected Interpreter dicc;
 	protected Language language;
@@ -64,11 +64,11 @@ public abstract class Control extends Thread {
 	public abstract void send(String mensaje);
 
 	public Room getHabitacio() {
-		return hab_actual;
+		return currentRoom;
 	}
 
 	public void setHabitacio(Room habActual) {
-		hab_actual = habActual;
+		currentRoom = habActual;
 		
 	}
 	

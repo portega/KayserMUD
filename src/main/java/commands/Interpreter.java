@@ -58,19 +58,19 @@ public class Interpreter {
         diccionari.put("salir", "system.ComandoSalir");
 
         // Sociales
-        Social s;
-        for (Iterator<String> i = Social.getList(); i.hasNext();) {
-            s = Social.getSocial(i.next());
+        /*Social s;
+        for (String nombre : control.getSocials().keySet()) {
+            s = control.getSocial(nombre);
             if (s.allows(control.getPlayer())) {
                 diccionari.put(s.getNombre(), "ComandoSocial");
             }
-        }
+        }*/
     }
 
     public String find(String input) {
         Map.Entry<String, String> clau;
         String txt = "";
-        input = spec_chars(input);
+        input = expandSpecialCharacters(input);
         String[] params = input.split(" ");
 
         clau = diccionari.ceilingEntry(params[0]);
@@ -88,7 +88,7 @@ public class Interpreter {
         }
     }
 
-    private String spec_chars(String input) {
+    private String expandSpecialCharacters(String input) {
         String output;
         if (input.startsWith("'")) {
             output = "decir " + input.substring(1).trim();

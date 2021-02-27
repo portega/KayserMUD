@@ -2,16 +2,15 @@ package utils;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.JsonNodeFactory;
-import java.net.URL;
+import java.io.InputStream;
 
 public class Utils {
   public static JsonNode loadJSON(Class caller, String filePath) {
-    JsonNode result = JsonNodeFactory.instance.nullNode();
+    JsonNode result = null;
     try {
-      URL path = caller.getClassLoader().getResource(filePath);
+      InputStream is = caller.getClassLoader().getResourceAsStream(filePath);
       ObjectMapper mapper = new ObjectMapper();
-      result = mapper.readTree(path);
+      result = mapper.readTree(is);
     } catch(Exception ex) {
       System.out.println(ex);
     }

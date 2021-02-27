@@ -1,13 +1,11 @@
 package server;
 
-import commands.Social;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-import localization.Language;
 import world.Room;
 import world.Player;
 
@@ -35,7 +33,7 @@ public class PlayerThread extends Control {
 							socket.getInputStream()));
 
 			out.println("Bienvenido");
-			out.print(hab_actual.mostrar(player)+"\n\r"+process_prompt()+" ");
+			out.print(currentRoom.mostrar(player)+"\n\r"+process_prompt()+" ");
 			out.flush();
 			while ((inputLine = in.readLine()) != null) {
 
