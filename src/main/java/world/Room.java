@@ -17,6 +17,13 @@ public class Room extends Template {
 		this.salidas = salidas;
 	}
 
+	public void mergeExits(Room otherInstance) {
+		HashMap<Direcciones, Room> otherExits = otherInstance.getSalidas();
+		for (Direcciones d: otherExits.keySet()) {
+			setSortida(otherExits.get(d), d);
+		}
+	}
+
 	private HashMap<Direcciones, Room> salidas;
 	private Container<Template> contenido;
 	private Container<Player> habitantes;
@@ -118,9 +125,7 @@ public class Room extends Template {
          */
         public void sendAll(String msg, Player... except) {
             // Lista de destinatarios
-            List<Player> l_dest = new ArrayList<Player>();
-            //Copiamos la lista para no modificar el contenido de la room
-            Collections.copy(habitantes.getAll(), l_dest);
+            List<Player> l_dest = habitantes.getAll();
             // Eliminamos de la copia las excepciones
             l_dest.removeAll(Arrays.asList(except));
             //Enviamos mensaje a cada jugador de la lista definitiva

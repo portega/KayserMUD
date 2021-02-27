@@ -54,6 +54,7 @@ public class Server {
             System.out.println("Starting server, port " + port);
             setTimer(new Timer());
             hab_actual = loadRooms();
+            cargarMobs(hab_actual);
             pjs_conectados = new HashMap<String, Player>();
             System.out.println("Server ready, waiting players");
             while (listening) {
@@ -77,9 +78,6 @@ public class Server {
         for (JsonNode node: rooms) {
             current = readRoom(node, rooms_list);
             if (first_room == null) first_room = current;
-            if (rooms_list.containsKey(current.getVnumAsInteger())) {
-                current.getSalidas().putAll(rooms_list.get(current.getVnumAsInteger()).getSalidas());
-            }
             rooms_list.put(current.getVnumAsInteger(), current);
         }
 
@@ -87,10 +85,17 @@ public class Server {
     }
 
     public static Room readRoom(JsonNode node, HashMap<Integer, Room> rooms_list) {
-        Room r = new Room();
+        int myVnum = node.get("vnum").asInt();
+        Room r;
+        if (rooms_list.containsKey(myVnum)) {
+            r = rooms_list.get(myVnum);
+        } else {
+            r = new Room();
+            r.setVnum(myVnum);
+        }
         r.setNombre(node.get("short_desc").asText());
         r.setDescripcion(node.get("long_desc").asText());
-        r.setVnum(node.get("vnum").asInt());
+
         ArrayNode arrayNode = (ArrayNode) node.get("exits");
         for(int i = 0; i < arrayNode.size(); i++) {
             JsonNode arrayElement = arrayNode.get(i);

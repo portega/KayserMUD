@@ -53,6 +53,7 @@ public class MobThread extends Control {
 	 * @return Resultado del mobprog
 	 */
 	private Object run_progs(Constants.MobProgs tipo, Player target) {
+		//System.out.println("run_progs: "+tipo+( target != null ? ", "+target.getNombre() : "") );
 		Object result = null;
 		if (progs.get(tipo) == null) return null;
 		for (String p : progs.get(tipo)) {
