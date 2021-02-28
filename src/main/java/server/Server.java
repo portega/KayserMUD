@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Timer;
 import java.util.TreeMap;
 
@@ -97,6 +98,25 @@ public class Server {
         r.setDescripcion(node.get("long_desc").asText());
 
         ArrayNode arrayNode = (ArrayNode) node.get("exits");
+        if (arrayNode != null) readRoomExits(arrayNode, rooms_list, r);
+
+        arrayNode = (ArrayNode) node.get("items");
+        if (arrayNode != null) readRoomItems(arrayNode, r);
+        return r;
+    }
+
+    public static void readRoomItems(ArrayNode arrayNode, Room r) {
+        for(int i = 0; i < arrayNode.size(); i++) {
+            JsonNode arrayElement = arrayNode.get(i);
+            Item item = new Item();
+            item.setVnum(arrayElement.get("vnum").asInt());
+            item.setNombre(arrayElement.get("name").asText());
+            item.setDescripcion(arrayElement.get("desc").asText());
+            r.addObjeto(item);
+        }
+    }
+
+    public static void readRoomExits(ArrayNode arrayNode, HashMap<Integer, Room> rooms_list, Room r) {
         for(int i = 0; i < arrayNode.size(); i++) {
             JsonNode arrayElement = arrayNode.get(i);
             int vnum = arrayElement.get("vnum").asInt();
@@ -111,8 +131,6 @@ public class Server {
             }
             r.setSortida(r2, Exit.Direcciones.valueOf(direction.toUpperCase()));
         }
-
-        return r;
     }
 
     public static TreeMap<String, Social> loadSocials() {
@@ -173,7 +191,7 @@ public class Server {
 
         ctl_guardia = new MobThread(guardia, h);
         ctl_guardia.setIntervalo(5);
-        ctl_guardia.setScript(new String[]{"norte", "sur", "este", "oeste"});
+        ctl_guardia.setScript(new String[]{"norte", "este", "oeste", "sur"});
         ctl_guardia.addProg(Constants.MobProgs.RAND, "if (Math.random() > 0.5) {"
                 + "control.exec(\"decir Sin novedad!\")"
                 + "} else {"
