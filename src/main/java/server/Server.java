@@ -2,8 +2,12 @@ package server;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashMap;
@@ -60,6 +64,7 @@ public class Server {
             System.out.println("Server ready, waiting players");
             while (listening) {
                 clientSocket = serverSocket.accept();
+                welcome(clientSocket);
                 crea_jugador(clientSocket, hab_actual);
             }
             getTimer().cancel();
@@ -190,13 +195,12 @@ public class Server {
         guardia.setVnum(2002);
 
         ctl_guardia = new MobThread(guardia, h);
-        ctl_guardia.setIntervalo(5);
+        ctl_guardia.setIntervalo(30);
         ctl_guardia.setScript(new String[]{"norte", "este", "oeste", "sur"});
-        ctl_guardia.addProg(Constants.MobProgs.RAND, "if (Math.random() > 0.5) {"
+        ctl_guardia.addProg(Constants.MobProgs.RAND, "if (Math.random() < 0.3) {"
                 + "control.exec(\"decir Sin novedad!\")"
                 + "} else {"
-                + "control.exec(\"decir puagh\");"
-                + "control.exec(\"decir Hacer la ronda es un asco!\");"
+                + "control.exec(\"decir Apatrullando la siudaaaad...\");"
                 + "}");
         ctl_guardia.start();
     }
@@ -226,5 +230,22 @@ public class Server {
 
     public static HashMap<String, Player> getPjs_conectados() {
         return pjs_conectados;
+    }
+
+    public static void welcome(Socket clientSocket) {
+        try {
+            String filePath = "logo.txt";
+            InputStream is = Server.class.getClassLoader().getResourceAsStream(filePath);
+            PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+            BufferedReader in = new BufferedReader(new InputStreamReader(is));
+
+            String line = in.readLine();
+            while (line != null) {
+                out.println(line);
+                line = in.readLine();
+            }
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
     }
 }
