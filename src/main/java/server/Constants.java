@@ -38,4 +38,8 @@ public class Constants {
 
     /** Salto de l&iacute;nea **/
     public final static String EOL = "\n\r";
+    
+    public final static String VERDE = "\u001b[32m";
+    public final static String VERDE_256 = "\u001b[38;5;046m";
+    public final static String RESET = "\u001b[0m";
 }

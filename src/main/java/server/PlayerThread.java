@@ -12,10 +12,7 @@ import world.Player;
 public class PlayerThread extends Control {
 	private Socket socket = null;
 	private PrintWriter out;
-	private String VERDE = "\u001b[32m";
-	private String VERDE_256 = "\u001b[38;5;046m";
-	private String RESET = "\u001b[0m";
-	private String prompt = VERDE_256+"<%h/%Hpv %m/%Mm %vmv>"+RESET;
+	private String prompt = Constants.VERDE_256+"<%h/%Hpv %m/%Mm %vmv> "+Constants.RESET;
 
 	public PlayerThread(Socket socket, Room inicio, Player p) {
 		super("PlayerThread", inicio, p);
