@@ -9,7 +9,7 @@ public class ComandoEquipo implements Comando {
     @Override
     public String execute(Player p, String args)
             throws CommandException {
-        String txt = p.getEquipo();
+        String txt = p.listEquipo();
         if (txt.equals("")) {
             txt = "Estás desnudo";
         }

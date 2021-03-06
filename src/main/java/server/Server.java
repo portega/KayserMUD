@@ -24,6 +24,11 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import utils.Utils;
+import world.Body;
+import world.BodyPart;
+import world.BodyPart.Position;
+import world.BodyPart.Type;
+import world.EquipmentObj;
 import world.Exit;
 import world.Item;
 import world.Room;
@@ -59,6 +64,7 @@ public class Server {
             System.out.println("Starting server, port " + port);
             setTimer(new Timer());
             hab_actual = loadRooms();
+            cargarEquipo(hab_actual);
             cargarMobs(hab_actual);
             pjs_conectados = new HashMap<String, Player>();
             System.out.println("Server ready, waiting players");
@@ -209,6 +215,7 @@ public class Server {
         int num_players = pjs_conectados.size();
         String nombre = "Jugador " + num_players;
         Player p = new Player();
+        p.setEquipo(crearBody());
         p.setNombre(nombre);
         p.setDescripcion("Un tio alto y moreno");
         p.setDamm(100);
@@ -247,5 +254,45 @@ public class Server {
         } catch (Exception ex) {
             System.out.println(ex);
         }
+    }
+
+    public static void cargarEquipo(Room hab) {
+        EquipmentObj espada = new EquipmentObj();
+        espada.setType(Type.HAND);
+
+        // TODO: Keywords pel Template, volem fer 'coger espada' NO 'coger Tizona'
+        espada.setNombre("Tizona");
+        espada.setDescripcion("Una espada vieja pero afilada");
+        espada.setVnum(3001);
+
+        hab.addObjeto(espada);
+
+        EquipmentObj casco = new EquipmentObj();
+        casco.setType(Type.HEAD);
+        casco.setVnum(3002);
+        casco.setNombre("casco");
+        casco.setDescripcion("Un casco de novato");
+
+        hab.addObjeto(casco);
+    }
+
+    public static Body crearBody() {
+        Body cuerpo = new Body();
+        BodyPart bp = new BodyPart();
+        bp.setType(Type.HEAD);
+        bp.setPosition(Position.CENTER);
+        cuerpo.add(bp);
+
+        bp = new BodyPart();
+        bp.setType(Type.HAND);
+        bp.setPosition(Position.LEFT);
+        cuerpo.add(bp);
+
+        bp = new BodyPart();
+        bp.setType(Type.HAND);
+        bp.setPosition(Position.RIGHT);
+        cuerpo.add(bp);
+
+        return cuerpo;
     }
 }

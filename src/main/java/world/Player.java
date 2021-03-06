@@ -1,180 +1,79 @@
 package world;
 
-import commands.Social;
+import java.util.Optional;
+import lombok.Data;
 import server.Constants;
 import server.Control;
 
+@Data
 public class Player extends Template {
-	private Race raza;
-	private Gender sexo;
-	private int gold;
-	private int nivel;
-	private Container equipo;
-	private Container inventario;
-	private Control control;
-	private int vida, maxVida, mana, maxMana, move, maxMove;
-	private Constants.Estados estado;
-	private Player victim;
-	private int damm;
-	private long fecha_nacimiento;
 
-	public Player() {
-		inventario = new Container(this);
-		equipo = new Container(this);
-		estado = Constants.Estados.NORMAL;
-		fecha_nacimiento = System.currentTimeMillis();
-	}
+  private Race raza;
+  private Gender sexo;
+  private int gold;
+  private int nivel;
+  //private Container equipo;
+  private Body equipo;
+  private Container inventario;
+  private Control control;
+  private int vida, maxVida, mana, maxMana, move, maxMove;
+  private Constants.Estados estado;
+  private Player victim;
+  private int damm;
+  private long fecha_nacimiento;
 
-	public int getNivel() {
-		return nivel;
-	}
-	public void setNivel(int nivel) {
-		this.nivel = nivel;
-	}
-	public int getEdad() {
-		long ahora = System.currentTimeMillis();
-		return (int)(fecha_nacimiento - ahora)/ Constants.HORAS;
-	}
-	public Race getRaza() {
-		return raza;
-	}
-	public void setRaza(Race raza) {
-		this.raza = raza;
-	}
-	public void addInventario(Template obj) {
-		inventario.add(obj);
-	}
-	public void removeInventario(Template obj) {
-		inventario.remove(obj);
-	}
-	public String getInventario() {
-		return inventario.list();
-	}
-	
-	public Template findObjeto(String nombre) {
-		return inventario.find(nombre);
-	}
+  public Player() {
+    inventario = new Container(this);
+    equipo = new Body();
+    estado = Constants.Estados.NORMAL;
+    fecha_nacimiento = System.currentTimeMillis();
+  }
 
-	public void setControl(Control control) {
-		this.control = control;
-	}
+  public int getEdad() {
+    long ahora = System.currentTimeMillis();
+    return (int) (fecha_nacimiento - ahora) / Constants.HORAS;
+  }
 
-	public Control getControl() {
-		return control;
-	}
+  public void addInventario(Template obj) {
+    inventario.add(obj);
+  }
 
-	
+  public void removeInventario(Template obj) {
+    inventario.remove(obj);
+  }
 
-	@Override
-	public void update() {
-		// TODO Auto-generated method stub
-		switch(estado) {
-		case FIGHT:
-			
-			break;
-		}
-	}
+  public String listInventario() {
+    return inventario.list();
+  }
 
-	public void setEstado(Constants.Estados estado) {
-		this.estado = estado;
-	}
+  public Template findObjeto(String nombre) {
+    return inventario.find(nombre);
+  }
 
-	public Constants.Estados getEstado() {
-		return estado;
-	}
+  @Override
+  public void update() {
+    // TODO Auto-generated method stub
+    switch (estado) {
+      case FIGHT:
 
-	public void setVictim(Player victim) {
-		this.victim = victim;
-	}
+        break;
+    }
+  }
 
-	public Player getVictim() {
-		return victim;
-	}
+  // Metodos de equipo
+  public void addEquipo(EquipmentObj obj) {
+    equipo.wear(obj);
+  }
 
-	public void setDamm(int damm) {
-		this.damm = damm;
-	}
+  public void removeEquipo(EquipmentObj obj) {
+    equipo.unwear(obj);
+  }
 
-	public int getDamm() {
-		return damm;
-	}
+  public String listEquipo() {
+    return equipo.listEquipment();
+  }
 
-	public int getVida() {
-		return vida;
-	}
-
-	public void setVida(int vida) {
-		this.vida = vida;
-	}
-
-	public int getMaxVida() {
-		return maxVida;
-	}
-
-	public void setMaxVida(int maxVida) {
-		this.maxVida = maxVida;
-	}
-
-	public int getMana() {
-		return mana;
-	}
-
-	public void setMana(int mana) {
-		this.mana = mana;
-	}
-
-	public int getMaxMana() {
-		return maxMana;
-	}
-
-	public void setMaxMana(int maxMana) {
-		this.maxMana = maxMana;
-	}
-
-	public int getMove() {
-		return move;
-	}
-
-	public void setMove(int move) {
-		this.move = move;
-	}
-
-	public int getMaxMove() {
-		return maxMove;
-	}
-
-	public void setMaxMove(int maxMove) {
-		this.maxMove = maxMove;
-	}
-
-	public void setGold(int gold) {
-		this.gold = gold;
-	}
-
-	public int getGold() {
-		return gold;
-	}
-
-	public void setSexo(Gender sexo) {
-		this.sexo = sexo;
-	}
-
-	public Gender getSexo() {
-		return sexo;
-	}
-
-        // Metodos de equipo
-        public void addEquipo(Template obj) {
-		equipo.add(obj);
-	}
-	public void removeEquipo(Template obj) {
-		equipo.remove(obj);
-	}
-	public String getEquipo() {
-		return equipo.list();
-	}
-
-        public Template findEquipo(String nombre) {
-		return equipo.find(nombre);
-	}
+  public Optional<EquipmentObj> findEquipo(String nombre) {
+    return equipo.findEquipment(nombre);
+  }
 }
