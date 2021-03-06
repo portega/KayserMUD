@@ -7,6 +7,7 @@ package commands.objs;
 
 import commands.Comando;
 import commands.CommandException;
+import world.EquipmentObj;
 import world.Player;
 import world.Template;
 
@@ -31,8 +32,12 @@ public class ComandoVestir implements Comando {
 
         if (obj == null) return "No tienes eso";
 
-        p.removeInventario(obj);
-        p.addEquipo(obj);
+        if (obj instanceof EquipmentObj) {
+            p.removeInventario(obj);
+            p.addEquipo((EquipmentObj) obj);
+        } else {
+            return "No puedes vestir eso";
+        }
 
         return "Te has equipado con "+obj.getNombre();
     }

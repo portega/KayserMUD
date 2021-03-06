@@ -7,6 +7,8 @@ package commands.objs;
 
 import commands.Comando;
 import commands.CommandException;
+import java.util.Optional;
+import world.EquipmentObj;
 import world.Player;
 import world.Template;
 
@@ -27,13 +29,16 @@ public class ComandoDesvestir  implements Comando {
         } else {
             return "¿Desvestir qué?";
         }
-        Template obj = p.findEquipo(params[1]);
+        Optional<EquipmentObj> obj = p.findEquipo(params[1]);
 
-        if (obj == null) return "No llevas eso";
+        if (obj.isPresent()) {
+            EquipmentObj eq = obj.get();
+            p.removeEquipo(eq);
+            p.addInventario(eq);
 
-        p.removeEquipo(obj);
-        p.addInventario(obj);
+            return "Te has quitado "+eq.getNombre();
+        }
 
-        return "Te has quitado "+obj.getNombre();
+        return "No llevas eso";
     }
 }
