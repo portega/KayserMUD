@@ -10,6 +10,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Timer;
@@ -37,6 +38,18 @@ import world.Player;
 import commands.Social;
 
 import static utils.Utils.loadJSON;
+import static world.BodyPart.Position.BACK;
+import static world.BodyPart.Position.CENTER;
+import static world.BodyPart.Position.FRONT;
+import static world.BodyPart.Position.LEFT;
+import static world.BodyPart.Position.RIGHT;
+import static world.BodyPart.Type.ARM;
+import static world.BodyPart.Type.CHEST;
+import static world.BodyPart.Type.FINGER;
+import static world.BodyPart.Type.FOOT;
+import static world.BodyPart.Type.HAND;
+import static world.BodyPart.Type.HEAD;
+import static world.BodyPart.Type.LEG;
 
 public class Server {
 
@@ -258,7 +271,7 @@ public class Server {
 
     public static void cargarEquipo(Room hab) {
         EquipmentObj espada = new EquipmentObj();
-        espada.setType(Type.HAND);
+        espada.setType(HAND);
 
         // TODO: Keywords pel Template, volem fer 'coger espada' NO 'coger Tizona'
         espada.setNombre("Tizona");
@@ -268,7 +281,7 @@ public class Server {
         hab.addObjeto(espada);
 
         EquipmentObj casco = new EquipmentObj();
-        casco.setType(Type.HEAD);
+        casco.setType(HEAD);
         casco.setVnum(3002);
         casco.setNombre("casco");
         casco.setDescripcion("Un casco de novato");
@@ -277,20 +290,37 @@ public class Server {
     }
 
     public static Body crearBody() {
+        EnumMap<Type, String> textosType = new EnumMap<>(Type.class);
+        EnumMap<Position, String> textosPosition = new EnumMap<>(Position.class);
+
+        textosType.put(HEAD, "En la cabeza");
+        textosType.put(CHEST, "En el pecho");
+        textosType.put(ARM, "En el brazo");
+        textosType.put(HAND, "En la mano");
+        textosType.put(LEG, "En la pierna");
+        textosType.put(FOOT, "En el pie");
+        textosType.put(FINGER, "En el dedo");
+
+        textosPosition.put(LEFT, "izquierda#izquierdo");
+        textosPosition.put(RIGHT, "derecha#derecho");
+        textosPosition.put(FRONT, "delantera#delantero");
+        textosPosition.put(BACK, "trasera#trasero");
+        textosPosition.put(CENTER, "");
+
         Body cuerpo = new Body();
-        BodyPart bp = new BodyPart();
-        bp.setType(Type.HEAD);
-        bp.setPosition(Position.CENTER);
+        BodyPart bp = new BodyPart(textosType, textosPosition);
+        bp.setType(HEAD);
+        bp.setPosition(CENTER);
         cuerpo.add(bp);
 
-        bp = new BodyPart();
-        bp.setType(Type.HAND);
-        bp.setPosition(Position.LEFT);
+        bp = new BodyPart(textosType, textosPosition);
+        bp.setType(HAND);
+        bp.setPosition(LEFT);
         cuerpo.add(bp);
 
-        bp = new BodyPart();
-        bp.setType(Type.HAND);
-        bp.setPosition(Position.RIGHT);
+        bp = new BodyPart(textosType, textosPosition);
+        bp.setType(HAND);
+        bp.setPosition(RIGHT);
         cuerpo.add(bp);
 
         return cuerpo;

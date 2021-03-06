@@ -1,21 +1,21 @@
 package world;
 
 import java.util.ArrayList;
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import lombok.Data;
-import lombok.NonNull;
 import server.Constants;
 import world.BodyPart.Type;
 
 @Data
 public class Body {
-  private HashMap<Type, List<BodyPart>> parts;
+  private EnumMap<Type, List<BodyPart>> parts;
 
   public Body() {
-    parts = new HashMap<>();
+    parts = new EnumMap<>(Type.class);
   }
 
   public boolean isWearable(EquipmentObj item) {
