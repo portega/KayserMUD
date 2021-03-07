@@ -22,10 +22,10 @@ public class ComandoVestir implements Comando {
         if (args != null && args.length() >0) {
             params = args.split(" ");
             if (params.length != 2) {
-                return "Â¿Vestir quÃ©?";
+                return "¿Vestir qué?";
             }
         } else {
-            return "Â¿Vestir quÃ©?";
+            return "¿Vestir qué?";
         }
         Template obj = p.findObjeto(params[1]);
 

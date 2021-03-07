@@ -20,11 +20,11 @@ public class ComandoDecir implements Comando {
 		if (target != null) {
 			String mensaje = args.substring(args.indexOf(params[1])+params[1].length());
 			target.getControl().send(p.getNombre()+" te dice '"+mensaje+"'");
-			txt = Constants.VERDE + "Le dices a "+target.getNombre()+" '"+Constants.RESET+mensaje+Constants.VERDE+"'"+ Constants.EOL;
+			txt = "Le dices a "+target.getNombre()+" '"+mensaje+"'"+ Constants.EOL;
 		} else {
 			String mensaje = args.substring(params[0].length()+1);
 			h.sendAll(p.getNombre()+" dice '"+mensaje+"'",p);
-			txt = Constants.VERDE+ "Dices '"+Constants.RESET+mensaje+Constants.VERDE+"'"+ Constants.EOL;
+			txt = Constants.BLACK_BOLD+ "Dices '"+Constants.WHITE+mensaje+Constants.BLACK_BOLD+"'"+ Constants.EOL;
 		}
 		return txt;
 	}
