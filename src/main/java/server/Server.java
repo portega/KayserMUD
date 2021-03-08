@@ -31,6 +31,7 @@ import world.BodyPart.Position;
 import world.BodyPart.Type;
 import world.EquipmentObj;
 import world.Exit;
+import world.Humanoide;
 import world.Item;
 import world.Room;
 import world.Player;
@@ -57,6 +58,9 @@ public class Server {
     private static int puerto = 4000;
     private static HashMap<String, Player> pjs_conectados;
     private static TreeMap<String, Social> socials;
+    public static EnumMap<Type, String> textosType;
+    public static EnumMap<Position, String> textosPosition;
+
 
     public static void main(String[] args) throws IOException {
         ServerSocket serverSocket;
@@ -71,6 +75,7 @@ public class Server {
         port = config.get("port").asInt();
         locale = config.get("locale").asText();
         socials = loadSocials();
+        initTextos();
 
         try {
             serverSocket = new ServerSocket(port);
@@ -228,7 +233,7 @@ public class Server {
         int num_players = pjs_conectados.size();
         String nombre = "Jugador " + num_players;
         Player p = new Player();
-        p.setEquipo(crearBody());
+        p.setEspecie(new Humanoide());
         p.setNombre(nombre);
         p.setDescripcion("Un tio alto y moreno");
         p.setDamm(100);
@@ -290,23 +295,6 @@ public class Server {
     }
 
     public static Body crearBody() {
-        EnumMap<Type, String> textosType = new EnumMap<>(Type.class);
-        EnumMap<Position, String> textosPosition = new EnumMap<>(Position.class);
-
-        textosType.put(HEAD, "En la cabeza");
-        textosType.put(CHEST, "En el pecho");
-        textosType.put(ARM, "En el brazo");
-        textosType.put(HAND, "En la mano");
-        textosType.put(LEG, "En la pierna");
-        textosType.put(FOOT, "En el pie");
-        textosType.put(FINGER, "En el dedo");
-
-        textosPosition.put(LEFT, "izquierda#izquierdo");
-        textosPosition.put(RIGHT, "derecha#derecho");
-        textosPosition.put(FRONT, "delantera#delantero");
-        textosPosition.put(BACK, "trasera#trasero");
-        textosPosition.put(CENTER, "");
-
         Body cuerpo = new Body();
         BodyPart bp = new BodyPart(textosType, textosPosition);
         bp.setType(HEAD);
@@ -324,5 +312,24 @@ public class Server {
         cuerpo.add(bp);
 
         return cuerpo;
+    }
+
+    public static void initTextos() {
+        textosType = new EnumMap<>(Type.class);
+        textosPosition = new EnumMap<>(Position.class);
+
+        textosType.put(HEAD, "En la cabeza");
+        textosType.put(CHEST, "En el pecho");
+        textosType.put(ARM, "En el brazo");
+        textosType.put(HAND, "En la mano");
+        textosType.put(LEG, "En la pierna");
+        textosType.put(FOOT, "En el pie");
+        textosType.put(FINGER, "En el dedo");
+
+        textosPosition.put(LEFT, "izquierda#izquierdo");
+        textosPosition.put(RIGHT, "derecha#derecho");
+        textosPosition.put(FRONT, "delantera#delantero");
+        textosPosition.put(BACK, "trasera#trasero");
+        textosPosition.put(CENTER, "");
     }
 }

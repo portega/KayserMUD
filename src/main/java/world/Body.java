@@ -1,5 +1,7 @@
 package world;
 
+import static world.BodyPart.Position.CENTER;
+
 import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.HashMap;
@@ -8,6 +10,8 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import lombok.Data;
 import server.Constants;
+import server.Server;
+import world.BodyPart.Position;
 import world.BodyPart.Type;
 
 @Data
@@ -83,5 +87,18 @@ public class Body {
   public void add(BodyPart newPart) {
     parts.putIfAbsent(newPart.getType(), new ArrayList<>());
     parts.get(newPart.getType()).add(newPart);
+  }
+
+  public Body addPart(BodyPart.Type tipo) {
+    return addPart(tipo, CENTER);
+  }
+    public Body addPart(BodyPart.Type tipo, BodyPart.Position posicion) {
+    BodyPart bp = new BodyPart(Server.textosType, Server.textosPosition);
+    bp.setPosition(posicion);
+    bp.setType(tipo);
+
+    add(bp);
+
+    return this;
   }
 }

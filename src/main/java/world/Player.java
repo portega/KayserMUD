@@ -13,7 +13,7 @@ public class Player extends Template {
   private int gold;
   private int nivel;
   //private Container equipo;
-  private Body equipo;
+  private Especie especie;
   private Container inventario;
   private Control control;
   private int vida, maxVida, mana, maxMana, move, maxMove;
@@ -24,7 +24,6 @@ public class Player extends Template {
 
   public Player() {
     inventario = new Container(this);
-    equipo = new Body();
     estado = Constants.Estados.NORMAL;
     fecha_nacimiento = System.currentTimeMillis();
   }
@@ -62,18 +61,18 @@ public class Player extends Template {
 
   // Metodos de equipo
   public void addEquipo(EquipmentObj obj) {
-    equipo.wear(obj);
+    especie.getBody().wear(obj);
   }
 
   public void removeEquipo(EquipmentObj obj) {
-    equipo.unwear(obj);
+    especie.getBody().unwear(obj);
   }
 
   public String listEquipo() {
-    return equipo.listEquipment();
+    return especie.getBody().listEquipment();
   }
 
   public Optional<EquipmentObj> findEquipo(String nombre) {
-    return equipo.findEquipment(nombre);
+    return especie.getBody().findEquipment(nombre);
   }
 }
