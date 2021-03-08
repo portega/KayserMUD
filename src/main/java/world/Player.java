@@ -13,7 +13,7 @@ public class Player extends Template {
   private int gold;
   private int nivel;
   //private Container equipo;
-  private Especie especie;
+  private Species especie;
   private Container inventario;
   private Control control;
   private int vida, maxVida, mana, maxMana, move, maxMove;
