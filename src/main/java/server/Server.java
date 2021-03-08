@@ -3,7 +3,6 @@ package server;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -12,17 +11,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.EnumMap;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Timer;
 import java.util.TreeMap;
-
-import javax.xml.parsers.DocumentBuilderFactory;
-
-import localization.Language;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 
 import utils.Utils;
 import world.Body;
@@ -30,8 +20,8 @@ import world.BodyPart;
 import world.BodyPart.Position;
 import world.BodyPart.Type;
 import world.EquipmentObj;
+import world.Species;
 import world.Exit;
-import world.Humanoide;
 import world.Item;
 import world.Room;
 import world.Player;
@@ -51,6 +41,7 @@ import static world.BodyPart.Type.FOOT;
 import static world.BodyPart.Type.HAND;
 import static world.BodyPart.Type.HEAD;
 import static world.BodyPart.Type.LEG;
+import static world.BodyPart.Type.TAIL;
 
 public class Server {
 
@@ -233,7 +224,7 @@ public class Server {
         int num_players = pjs_conectados.size();
         String nombre = "Jugador " + num_players;
         Player p = new Player();
-        p.setEspecie(new Humanoide());
+        p.setEspecie(Species.get(Species.Type.REPTILIAN));
         p.setNombre(nombre);
         p.setDescripcion("Un tio alto y moreno");
         p.setDamm(100);
@@ -325,6 +316,7 @@ public class Server {
         textosType.put(LEG, "En la pierna");
         textosType.put(FOOT, "En el pie");
         textosType.put(FINGER, "En el dedo");
+        textosType.put(TAIL, "En la cola");
 
         textosPosition.put(LEFT, "izquierda#izquierdo");
         textosPosition.put(RIGHT, "derecha#derecho");

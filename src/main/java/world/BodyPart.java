@@ -15,7 +15,8 @@ public class BodyPart {
     HAND,
     LEG,
     FOOT,
-    FINGER
+    FINGER,
+    TAIL
   };
 
   public enum Position {
