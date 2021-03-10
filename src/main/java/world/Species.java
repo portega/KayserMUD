@@ -11,41 +11,39 @@ import static world.BodyPart.Type.HEAD;
 import static world.BodyPart.Type.LEG;
 import static world.BodyPart.Type.TAIL;
 
-import lombok.Data;
-
-@Data
 public class Species {
-  protected Body body;
+
+  public static Body humanoid() {
+    Body newBody = new Body();
+    newBody.addPart(HEAD)
+        .addPart(CHEST)
+        .addPart(ARM, RIGHT)
+        .addPart(ARM, LEFT)
+        .addPart(HAND, RIGHT)
+        .addPart(HAND, LEFT)
+        .addPart(FINGER, RIGHT)
+        .addPart(FINGER, LEFT)
+        .addPart(LEG, RIGHT)
+        .addPart(LEG, LEFT)
+        .addPart(FOOT, RIGHT)
+        .addPart(FOOT, LEFT);
+
+    return newBody;
+  }
+
+  public static Body reptilian() {
+    return humanoid().addPart(TAIL);
+  }
+
+  public static Body get(Type type) {
+    if (type == Type.REPTILIAN) {
+      return reptilian();
+    }
+    return humanoid();
+  }
 
   public enum Type {
-      HUMANOID,
-      REPTILIAN
-  }
-
-  protected Species() {
-    body = new Body();
-  }
-  public static Species get(Type kind) {
-    Species newObj = new Species();
-    Body newBody = newObj.getBody();
-    switch (kind) {
-      case REPTILIAN:
-        newBody.addPart(TAIL);
-      case HUMANOID:
-        newBody.addPart(HEAD)
-          .addPart(CHEST)
-          .addPart(ARM, RIGHT)
-          .addPart(ARM, LEFT)
-          .addPart(HAND, RIGHT)
-          .addPart(HAND, LEFT)
-          .addPart(FINGER, RIGHT)
-          .addPart(FINGER, LEFT)
-          .addPart(LEG, RIGHT)
-          .addPart(LEG, LEFT)
-          .addPart(FOOT, RIGHT)
-          .addPart(FOOT, LEFT);
-        break;
-    }
-    return newObj;
+    HUMANOID,
+    REPTILIAN
   }
 }

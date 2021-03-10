@@ -1,33 +1,5 @@
 package server;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.ArrayNode;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.util.EnumMap;
-import java.util.HashMap;
-import java.util.Timer;
-import java.util.TreeMap;
-
-import utils.Utils;
-import world.Body;
-import world.BodyPart;
-import world.BodyPart.Position;
-import world.BodyPart.Type;
-import world.EquipmentObj;
-import world.Species;
-import world.Exit;
-import world.Item;
-import world.Room;
-import world.Player;
-
-import commands.Social;
-
 import static utils.Utils.loadJSON;
 import static world.BodyPart.Position.BACK;
 import static world.BodyPart.Position.CENTER;
@@ -43,10 +15,34 @@ import static world.BodyPart.Type.HEAD;
 import static world.BodyPart.Type.LEG;
 import static world.BodyPart.Type.TAIL;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import commands.Social;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.EnumMap;
+import java.util.HashMap;
+import java.util.Timer;
+import java.util.TreeMap;
+import utils.Utils;
+import world.BodyPart.Position;
+import world.BodyPart.Type;
+import world.EquipmentObj;
+import world.Exit;
+import world.Item;
+import world.Player;
+import world.Room;
+import world.Species;
+
 public class Server {
 
     private static Timer timer;
-    private static int puerto = 4000;
+    private static final int puerto = 4000;
     private static HashMap<String, Player> pjs_conectados;
     private static TreeMap<String, Social> socials;
     public static EnumMap<Type, String> textosType;
@@ -75,7 +71,7 @@ public class Server {
             hab_actual = loadRooms();
             cargarEquipo(hab_actual);
             cargarMobs(hab_actual);
-            pjs_conectados = new HashMap<String, Player>();
+            pjs_conectados = new HashMap<>();
             System.out.println("Server ready, waiting players");
             while (listening) {
                 clientSocket = serverSocket.accept();
@@ -224,7 +220,7 @@ public class Server {
         int num_players = pjs_conectados.size();
         String nombre = "Jugador " + num_players;
         Player p = new Player();
-        p.setEspecie(Species.get(Species.Type.REPTILIAN));
+        p.setEspecie(Species.Type.REPTILIAN);
         p.setNombre(nombre);
         p.setDescripcion("Un tio alto y moreno");
         p.setDamm(100);
@@ -283,26 +279,6 @@ public class Server {
         casco.setDescripcion("Un casco de novato");
 
         hab.addObjeto(casco);
-    }
-
-    public static Body crearBody() {
-        Body cuerpo = new Body();
-        BodyPart bp = new BodyPart(textosType, textosPosition);
-        bp.setType(HEAD);
-        bp.setPosition(CENTER);
-        cuerpo.add(bp);
-
-        bp = new BodyPart(textosType, textosPosition);
-        bp.setType(HAND);
-        bp.setPosition(LEFT);
-        cuerpo.add(bp);
-
-        bp = new BodyPart(textosType, textosPosition);
-        bp.setType(HAND);
-        bp.setPosition(RIGHT);
-        cuerpo.add(bp);
-
-        return cuerpo;
     }
 
     public static void initTextos() {

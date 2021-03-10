@@ -2,9 +2,11 @@ package world;
 
 import java.util.Optional;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import server.Constants;
 import server.Control;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class Player extends Template {
 
@@ -12,9 +14,9 @@ public class Player extends Template {
   private Gender sexo;
   private int gold;
   private int nivel;
-  //private Container equipo;
-  private Species especie;
-  private Container inventario;
+  private Body equipo;
+  private Species.Type especie;
+  private Container<Template> inventario;
   private Control control;
   private int vida, maxVida, mana, maxMana, move, maxMove;
   private Constants.Estados estado;
@@ -23,7 +25,8 @@ public class Player extends Template {
   private long fecha_nacimiento;
 
   public Player() {
-    inventario = new Container(this);
+    super();
+    inventario = new Container<>(this);
     estado = Constants.Estados.NORMAL;
     fecha_nacimiento = System.currentTimeMillis();
   }
@@ -59,20 +62,25 @@ public class Player extends Template {
     }
   }
 
+  public void setEspecie(Species.Type species) {
+    especie = species;
+    equipo = Species.get(species);
+  }
+
   // Metodos de equipo
   public void addEquipo(EquipmentObj obj) {
-    especie.getBody().wear(obj);
+    getEquipo().wear(obj);
   }
 
   public void removeEquipo(EquipmentObj obj) {
-    especie.getBody().unwear(obj);
+    getEquipo().unwear(obj);
   }
 
   public String listEquipo() {
-    return especie.getBody().listEquipment();
+    return getEquipo().listEquipment();
   }
 
   public Optional<EquipmentObj> findEquipo(String nombre) {
-    return especie.getBody().findEquipment(nombre);
+    return getEquipo().findEquipment(nombre);
   }
 }
