@@ -1,5 +1,7 @@
 package commands;
 
+import static world.Player.StatType.HEALTH;
+
 import java.util.TimerTask;
 
 import server.Constants;
@@ -15,14 +17,14 @@ public class ComandoCombate extends TimerTask implements Comando {
 	public String execute(Player p, String args) throws CommandException {
 		String txt = "";
 		String[] params = args.split(" ");
-		Room h = (Room)p.getContenedor();
+		Room h = (Room)p.getOwner();
 		if (params.length < 2) {
 			return "Matar que?";
 		}
 		Player victim = h.findPlayer(params[1]);
 		
 		if (victim == p) {
-			p.setVida(p.getVida()-p.getDamm());
+			p.addStat(HEALTH, p.getDamage());
 			return "Te danyas a ti mismo.  Ouch!";
 		}
 		if (victim == null) return "No existe";
@@ -30,9 +32,9 @@ public class ComandoCombate extends TimerTask implements Comando {
 		player = p;
 		p.setVictim(victim);
 		victim.setVictim(p);
-		p.setEstado(Constants.Estados.FIGHT);
-		victim.setEstado(Constants.Estados.FIGHT);
-		txt = "Atacas a "+victim.getNombre();
+		p.setStatus(Constants.Estados.FIGHT);
+		victim.setStatus(Constants.Estados.FIGHT);
+		txt = "Atacas a "+victim.getName();
 
 		Server.getTimer().scheduleAtFixedRate(this, 0, 3*SEGUNDOS);
 		return txt;
@@ -43,41 +45,42 @@ public class ComandoCombate extends TimerTask implements Comando {
 	}
 	
 	private String hit(Player ch, Player victim) {
-		int vida = victim.getVida();
-		int damage = ch.getDamm();
+		int vida = victim.getCurrent(HEALTH);
+		int damage = ch.getDamage();
 		vida = vida - damage;
-		victim.setVida(vida);
-		String txt = "\r\nTu mamporro "+str_damage(victim.getMaxVida(),damage)+" a "+victim.getNombre();
+		victim.addStat(HEALTH, -damage);
+		String txt = "\r\nTu mamporro "+str_damage(victim.getMax(HEALTH),damage)+" a "+victim.getName();
 		if (vida <= 0) {
-			victim.setVida(1);
-			victim.setEstado(Constants.Estados.NORMAL);
-			ch.setEstado(Constants.Estados.NORMAL);
+			victim.setCurrent(HEALTH, 1);
+			victim.setStatus(Constants.Estados.NORMAL);
+			ch.setStatus(Constants.Estados.NORMAL);
 			if (victim.getControl() instanceof PlayerThread) 
 				victim.getControl().send("TE HAS MUERTO");
 			else {
-				Room h = (Room)player.getContenedor();
+				Room h = (Room)player.getOwner();
 				h.removePlayer(victim);
 				//TODO: respawn del mob
 			}
 			//victim.update();
 			//ch.setVictim(null);
-			txt += "\r\n"+victim.getNombre()+" ha muerto";
+			txt += "\r\n"+victim.getName()+" ha muerto";
 			cancel();
 		} else {		
-			vida = ch.getVida();
-			damage = victim.getDamm();
+			vida = ch.getCurrent(HEALTH);
+			damage = victim.getDamage();
 			vida = vida - damage;
-			ch.setVida(vida);
-			txt += "\r\nEl golpe de "+victim.getNombre()+" te "+str_damage(ch.getMaxVida(),damage);
-			txt += "\n\r"+victim.getNombre()+" "+str_estado(victim);
-			
-			if (damage > ch.getMaxVida()/4) txt += "\n\rEso realmente te DOLIO!";
-			if (vida < ch.getMaxVida()/4) txt += "\n\rTe gustaria dejar de sangrar tanto!";
-			else if (vida < ch.getMaxVida()/2) txt += "\n\rEstas muy malherido";
+			ch.setCurrent(HEALTH, vida);
+			txt += "\r\nEl golpe de "+victim.getName()+" te "+str_damage(ch.getMax(HEALTH),damage);
+			txt += "\n\r"+victim.getName()+" "+str_estado(victim);
+
+			int maxVida = ch.getMax(HEALTH);
+			if (damage > maxVida/4) txt += "\n\rEso realmente te DOLIO!";
+			if (vida < maxVida/4) txt += "\n\rTe gustaria dejar de sangrar tanto!";
+			else if (vida < maxVida/2) txt += "\n\rEstas muy malherido";
 			if (vida <= 0) {
-				ch.setVida(1);
-				victim.setEstado(Constants.Estados.NORMAL);
-				ch.setEstado(Constants.Estados.NORMAL);
+				ch.setCurrent(HEALTH, 1);
+				victim.setStatus(Constants.Estados.NORMAL);
+				ch.setStatus(Constants.Estados.NORMAL);
 				txt += "\r\nTe han MATADO!!";
 				cancel();
 			}
@@ -121,7 +124,7 @@ public class ComandoCombate extends TimerTask implements Comando {
 	}
 	
 	public static String str_estado(Player p) {
-		int percent = 10-(int)(10*p.getVida()/p.getMaxVida());
+		int percent = 10-(int)(10*p.getCurrent(HEALTH)/p.getMax(HEALTH));
 		String[] v_txt = {
 				"esta en perfecta forma.",
 				"tiene algun aranyazo.",

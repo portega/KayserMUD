@@ -14,6 +14,9 @@ import static world.BodyPart.Type.HAND;
 import static world.BodyPart.Type.HEAD;
 import static world.BodyPart.Type.LEG;
 import static world.BodyPart.Type.TAIL;
+import static world.Player.StatType.HEALTH;
+import static world.Player.StatType.MANA;
+import static world.Player.StatType.STAMINA;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -36,6 +39,7 @@ import world.EquipmentObj;
 import world.Exit;
 import world.Item;
 import world.Player;
+import world.Player.StatType;
 import world.Room;
 import world.Species;
 
@@ -110,8 +114,8 @@ public class Server {
             r = new Room();
             r.setVnum(myVnum);
         }
-        r.setNombre(node.get("short_desc").asText());
-        r.setDescripcion(node.get("long_desc").asText());
+        r.setName(node.get("short_desc").asText());
+        r.setDescription(node.get("long_desc").asText());
 
         ArrayNode arrayNode = (ArrayNode) node.get("exits");
         if (arrayNode != null) readRoomExits(arrayNode, rooms_list, r);
@@ -126,8 +130,8 @@ public class Server {
             JsonNode arrayElement = arrayNode.get(i);
             Item item = new Item();
             item.setVnum(arrayElement.get("vnum").asInt());
-            item.setNombre(arrayElement.get("name").asText());
-            item.setDescripcion(arrayElement.get("desc").asText());
+            item.setName(arrayElement.get("name").asText());
+            item.setDescription(arrayElement.get("desc").asText());
             r.addObjeto(item);
         }
     }
@@ -187,22 +191,19 @@ public class Server {
         Player guardia, pitufo;
 
         pitufo = new Player();
-        pitufo.setNombre("pitufo");
-        pitufo.setDescripcion("Un jodido pitufo azul");
-        pitufo.setDamm(5);
-        pitufo.setVida(100);
-        pitufo.setMaxVida(100);
+        pitufo.setName("pitufo");
+        pitufo.setDescription("Un jodido pitufo azul");
+        pitufo.setDamage(5);
+        pitufo.setMax(HEALTH, 100);
         ctl_pitufo = new MobThread(pitufo, h);
         ctl_pitufo.start();
 
         guardia = new Player();
-        guardia.setNombre("Un guardia");
-        guardia.setDescripcion("Un guardia patrullando la ciudad");
-        guardia.setDamm(100);
-        guardia.setVida(5000);
-        guardia.setMaxVida(5000);
-        guardia.setMaxMove(100);
-        guardia.setMove(100);
+        guardia.setName("guardia");
+        guardia.setDescription("Un guardia patrullando la ciudad");
+        guardia.setDamage(100);
+        guardia.setMax(HEALTH, 5000);
+        guardia.setMax(STAMINA, 100);
         guardia.setVnum(2002);
 
         ctl_guardia = new MobThread(guardia, h);
@@ -221,15 +222,12 @@ public class Server {
         String nombre = "Jugador " + num_players;
         Player p = new Player();
         p.setEspecie(Species.Type.REPTILIAN);
-        p.setNombre(nombre);
-        p.setDescripcion("Un tio alto y moreno");
-        p.setDamm(100);
-        p.setVida(1000);
-        p.setMaxVida(1000);
-        p.setMove(100);
-        p.setMaxMove(100);
-        p.setMana(100);
-        p.setMaxMana(100);
+        p.setName(nombre);
+        p.setDescription("Un tio alto y moreno");
+        p.setDamage(100);
+        p.setMax(HEALTH, 1000);
+        p.setMax(STAMINA, 100);
+        p.setMax(MANA, 100);
         p.setVnum(1000 + num_players);
 
         pjs_conectados.put(nombre, p);
@@ -237,7 +235,7 @@ public class Server {
         PlayerThread pt = new PlayerThread(clientSocket, hab_actual, p);
         pt.setSocials(socials);
         pt.start();
-        System.out.println("Aceptado cliente " + p.getNombre());
+        System.out.println("Aceptado cliente " + p.getName());
     }
 
     public static HashMap<String, Player> getPjs_conectados() {
@@ -266,8 +264,8 @@ public class Server {
         espada.setType(HAND);
 
         // TODO: Keywords pel Template, volem fer 'coger espada' NO 'coger Tizona'
-        espada.setNombre("Tizona");
-        espada.setDescripcion("Una espada vieja pero afilada");
+        espada.setName("Tizona");
+        espada.setDescription("Una espada vieja pero afilada");
         espada.setVnum(3001);
 
         hab.addObjeto(espada);
@@ -275,8 +273,8 @@ public class Server {
         EquipmentObj casco = new EquipmentObj();
         casco.setType(HEAD);
         casco.setVnum(3002);
-        casco.setNombre("casco");
-        casco.setDescripcion("Un casco de novato");
+        casco.setName("casco");
+        casco.setDescription("Un casco de novato");
 
         hab.addObjeto(casco);
     }

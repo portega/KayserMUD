@@ -13,7 +13,7 @@ public class ComandoMirar implements Comando {
 		String[] params;
 		if (args != null && args.length() >0) {
 			params = args.split(" ");
-			Room h = (Room)p.getContenedor();
+			Room h = (Room)p.getOwner();
 			switch (params.length) {
 			case 1: // MIRAR	
 				txt = h.mostrar(p);
@@ -27,8 +27,8 @@ public class ComandoMirar implements Comando {
 				}
 				
 				if (o != null) {
-					txt = o.getDescripcion();
-					if (o instanceof Player) txt += Constants.EOL+o.getNombre()+" "+ComandoCombate.str_estado((Player)o);
+					txt = o.getDescription();
+					if (o instanceof Player) txt += Constants.EOL+o.getName()+" "+ComandoCombate.str_estado((Player)o);
 				}
 				else txt = "No veo eso";
 				break;

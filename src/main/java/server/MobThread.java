@@ -83,7 +83,7 @@ public class MobThread extends Control {
 			return;
 		try {
 			while (true) {
-				switch (player.getEstado()) {
+				switch (player.getStatus()) {
 				case FIGHT:
 					run_progs(Constants.MobProgs.FIGHT, player.getVictim());
 					break;

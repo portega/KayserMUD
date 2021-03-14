@@ -17,7 +17,7 @@ public class ComandoSalidas implements Comando {
     @Override
     public String execute(Player p, String args) throws CommandException {
         String txt = "";
-        Room h = (Room)p.getContenedor();
+        Room h = (Room)p.getOwner();
         txt = h.llistaSortides();
         return txt;
     }

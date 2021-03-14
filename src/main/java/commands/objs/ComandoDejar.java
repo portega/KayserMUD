@@ -14,12 +14,12 @@ public class ComandoDejar implements Comando {
 			throws CommandException {
 		String txt = "";
 		String[] params = args.split(" ");
-		Room h = (Room)p.getContenedor();
+		Room h = (Room)p.getOwner();
 		Template obj = p.findObjeto(params[1]);
 		if (obj != null) {
 			p.removeInventario(obj);
 			h.addObjeto(obj);
-			txt = "Dejas "+obj.getNombre();
+			txt = "Dejas "+obj.getName();
 		} else txt = "No lo llevas encima";
 		return txt;
 	}

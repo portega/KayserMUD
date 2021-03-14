@@ -14,12 +14,12 @@ public class ComandoCoger implements Comando {
 			throws CommandException {
 		String txt = "";
 		String[] params = args.split(" ");
-		Room h = (Room)p.getContenedor();
+		Room h = (Room)p.getOwner();
 		Template obj = h.findObjeto(params[1]);
 		if (obj != null) {
 			p.addInventario(obj);
 			h.removeObjeto(obj);
-			txt = "Coges "+obj.getNombre();
+			txt = "Coges "+obj.getName();
 		} else txt = "No lo encuentras";
 		return txt;
 	}
