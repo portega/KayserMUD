@@ -79,7 +79,7 @@ public class Interpreter {
         }
         try {
             Class<?> c = Class.forName("commands." + clau.getValue());
-            Comando cmd = (Comando) c.newInstance();
+            Comando cmd = (Comando) c.getDeclaredConstructor().newInstance();
             txt = cmd.execute(control.getPlayer(), input);
             return txt;
         } catch (Exception e) {

@@ -24,7 +24,7 @@ public class ComandoCombate extends TimerTask implements Comando {
 		Player victim = h.findPlayer(params[1]);
 		
 		if (victim == p) {
-			p.addStat(HEALTH, p.getDamage());
+			p.addStat(HEALTH, -p.getDamage());
 			return "Te danyas a ti mismo.  Ouch!";
 		}
 		if (victim == null) return "No existe";
