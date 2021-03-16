@@ -16,15 +16,15 @@ public class ComandoDar implements Comando {
 		String[] params = args.split(" ");
 		if (params.length != 3) txt = "No te entiendo";
 		else {
-			Room h = (Room)p.getContenedor();
+			Room h = (Room)p.getOwner();
 			Player p2 = h.findPlayer(params[2]);
 			Item o = (Item)p.findObjeto(params[1]);
 			p2.addInventario(o);
 			p.removeInventario(o);
-			txt = "Le das "+o.getDescripcion()+" a "+p2.getNombre();
-			p2.getControl().send(p.getNombre()+" te da "+o.getDescripcion());
+			txt = "Le das "+o.getDescription()+" a "+p2.getName();
+			p2.getControl().send(p.getName()+" te da "+o.getDescription());
 			
-			h.sendAll(p.getNombre()+" le da "+o.getDescripcion()+" a "+p2.getNombre(), p, p2);
+			h.sendAll(p.getName()+" le da "+o.getDescription()+" a "+p2.getName(), p, p2);
 		}
 		
 		return txt;

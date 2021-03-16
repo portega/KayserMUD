@@ -1,5 +1,6 @@
 package world;
 
+import java.util.HashMap;
 import java.util.Optional;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -10,101 +11,118 @@ import server.Control;
 @Data
 public class Player extends Template {
 
-  private String name;
+  public enum Rank {NOVATO, APRENDIZ, ESCUDERO, CABALLERO, HEROE, INMORTAL, CREADOR};
+  public enum Size {S, M, L};
+  public enum Gender {M, F};	// per ara afecta a al llenguatge només ?cansad"+p.genero=M ?"o":"a"
+  public enum StatType {HEALTH, MANA, STAMINA, STR, CON, DEX, INT, LUCK};
+
   private String title;
-  public enum rank {NOVATO,APRENDIZ,ESCUDERO,CABALLERO,HEROE,INMORTAL,CREADOR};		// antic nivel, s?ha de fer constants per facilitar l?ús?
-  private Species.Type specie;	// definirà quines parts del cos cal fer un rename o algo? he canviat coses que van després :/
-  public enum gender {M,F};	// no sé si cal una classe, per ara afecta a al llenguatge només ?cansad"+p.genero=M ?"o":"a"
-  private Race race;		// serà una mica com species, donarà modificadors i definirà arbre de skills i spells
-  public enum size {PEQUENYO,MEDIANO,GRANDE};		//
-  private Body equipment;  // aquesta l'he deixat, traduitn, però encara haig d'aprendre com funciona
-  private Container<Template> inventary;
+  private Species.Type species;
+  private Race race;
+  private Gender gender;
+  private Size size;
+  private Rank rank;
+  private Body equipment;
+  private Container<Template> inventory;
   private Control control;
-  private long lived;    // l'edat es calcula per hores jugades normalment
-  private Constants.Estados position;  // muerto, durmiendo, descansando, de pie, luchando, encantado ....
-          // pq aquesta és constant i les altres les defineixo aquí, ho haig de fer a constant els enums?
-  private int health, maxHealth, mana, maxMana, stamina, maxStamina;
-  private int strength, constitution, dexterity, intelligence, luck;
+  private long birthday, lived;
+  private Constants.Estados status;
+  private HashMap<StatType, Stat> stats;
   private int armor;
   private int experience, gold, fame;
   private long bank; // per bank no sé si faria falta una tupla per a poder posar la quantitat, interés, si prèstec ...
   private int alignment; // no sé si es pot predefinir ja un rang alhora de crear-lo o es controla a posteriori
-  private int hunger, thirst, drunken; // igual que adalt
-
   private Player victim;
-  private int damage;  // és el mal extra que fas per equip, hi haurà una base per raça tamany (gender? :P) etc
-
-  private List<Affect> affectList;  // aquesta és la que tinc més difusa pq passa una mica com a body()
-  // public class Affect {
-  //    public enum Type {INVIS, OCULTO, FUERZA, VIDA, BORRACHO, PROTEGIDO, PETRIFICADO... };
-  //    es barregen tots els tipus?!? els que afecten a stats de la fitxa amb booleans??
-  //    private int value; // temps que li queda, serà descomptar cada tick fins a 0, si és -1 permanent
-  //    private int time;
-  //}
-  //
-  // falta per definir, no sé com es fa,
-  // commandlist (llista de comandes i si activa o no)
-  // skilltree (arbre predefinit d'habilitats segons especie, raza, on cada skill tindrà varis atributs)
-  // spelltree (igual que l'anterior però depen de la skill conjurar, doublecheck)
-
+  private int damage;
 
   public Player() {
     super();
-    inventario = new Container<>(this);
-    estado = Constants.Estados.NORMAL;
-    fecha_nacimiento = System.currentTimeMillis();
-  }
+    inventory = new Container<>(this);
+    status = Constants.Estados.NORMAL;
+    birthday = System.currentTimeMillis();
+    rank = Rank.NOVATO;
+    size = Size.M;
+    stats = new HashMap<>();
+    for (StatType st : StatType.values()) {
+      stats.put(st, new Stat());
+    }
 
-  public int getEdad() {
-    long ahora = System.currentTimeMillis();
-    return (int) (fecha_nacimiento - ahora) / Constants.HORAS;
   }
 
   public void addInventario(Template obj) {
-    inventario.add(obj);
+    inventory.add(obj);
   }
 
   public void removeInventario(Template obj) {
-    inventario.remove(obj);
+    inventory.remove(obj);
   }
 
   public String listInventario() {
-    return inventario.list();
+    return inventory.list();
   }
 
   public Template findObjeto(String nombre) {
-    return inventario.find(nombre);
+    return inventory.find(nombre);
   }
 
   @Override
   public void update() {
-    // TODO Auto-generated method stub
-    switch (estado) {
-      case FIGHT:
 
-        break;
-    }
   }
 
-  public void setEspecie(Species.Type species) {
-    especie = species;
-    equipo = Species.get(species);
+  public void setEspecie(Species.Type newSpecies) {
+    species = newSpecies;
+    equipment = Species.get(newSpecies);
   }
 
   // Metodos de equipo
   public void addEquipo(EquipmentObj obj) {
-    getEquipo().wear(obj);
+    getEquipment().wear(obj);
   }
 
   public void removeEquipo(EquipmentObj obj) {
-    getEquipo().unwear(obj);
+    getEquipment().unwear(obj);
   }
 
   public String listEquipo() {
-    return getEquipo().listEquipment();
+    return getEquipment().listEquipment();
   }
 
   public Optional<EquipmentObj> findEquipo(String nombre) {
-    return getEquipo().findEquipment(nombre);
+    return getEquipment().findEquipment(nombre);
+  }
+
+  public void addStat(StatType key, int value) {
+    Stat stat = stats.get(key);
+
+    if (stat == null) return;
+
+    if (stat.checkDelta(value)) {
+      stat.add(value);
+    }
+  }
+
+  public void setCurrent(StatType key, int value) {
+    Stat stat = stats.get(key);
+
+    if (stat == null) return;
+
+    if (stat.checkValue(value)) {
+      stat.setValue(value);
+    }
+  }
+
+  public int getCurrent(StatType key) {
+    return (stats.containsKey(key) ? stats.get(key).getValue() : null);
+  }
+
+  public int getMax(StatType key) {
+    return (stats.containsKey(key) ? stats.get(key).getMax() : null);
+  }
+
+  public void setMax(StatType key, int max) {
+    if (stats.containsKey(key)) {
+      stats.get(key).setMax(max);
+    }
   }
 }

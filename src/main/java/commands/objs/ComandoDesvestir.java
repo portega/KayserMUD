@@ -10,7 +10,6 @@ import commands.CommandException;
 import java.util.Optional;
 import world.EquipmentObj;
 import world.Player;
-import world.Template;
 
 /**
  *
@@ -36,7 +35,7 @@ public class ComandoDesvestir  implements Comando {
             p.removeEquipo(eq);
             p.addInventario(eq);
 
-            return "Te has quitado "+eq.getNombre();
+            return "Te has quitado "+eq.getName();
         }
 
         return "No llevas eso";

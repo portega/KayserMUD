@@ -13,7 +13,7 @@ public class ComandoSocial implements Comando {
 		
 		if (s == null) return "Eso no lo entiendo";
 
-		Room h = (Room)p.getContenedor();
+		Room h = (Room)p.getOwner();
 		Player p2;
 		
 		// SOCIAL A SI MISMO
@@ -33,7 +33,7 @@ public class ComandoSocial implements Comando {
 				txt = s.getMessage(Social.Targets.ACT_BADTARG);
 				player_msg = processMsg(txt, p);
 			// EXISTE TARGET Y ES EL MISMO
-			} else if (p.getNombre().equals(p2.getNombre())){
+			} else if (p.getName().equals(p2.getName())){
 				// Mensaje a si mismo
 				txt = s.getMessage(Social.Targets.ACT_ACTTARG);
 				player_msg = processMsg(txt, p);
@@ -63,9 +63,9 @@ public class ComandoSocial implements Comando {
 		String output;
 		
 		//TODO: $s, $m, etc segun Genero
-		output = input.replaceAll("\\$n", players[0].getNombre());
+		output = input.replaceAll("\\$n", players[0].getName());
 		if (players.length == 2) {
-			output = output.replaceAll("\\$N", players[1].getNombre());
+			output = output.replaceAll("\\$N", players[1].getName());
 		}
 		return output;
 	}

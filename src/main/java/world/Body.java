@@ -77,7 +77,7 @@ public class Body {
 
   public Optional<EquipmentObj> findEquipment(String nombre) {
     for (EquipmentObj obj : getEquipment()) {
-      if (obj.getNombre().equals(nombre)) {
+      if (obj.getName().equals(nombre)) {
         return Optional.of(obj);
       }
     }

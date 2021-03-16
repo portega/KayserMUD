@@ -2,7 +2,6 @@ package world;
 
 import java.util.EnumMap;
 import lombok.Data;
-import lombok.NonNull;
 
 @Data
 public class BodyPart {
@@ -55,7 +54,7 @@ public class BodyPart {
 
   @Override
   public String toString() {
-    return formatMe(25) + (wearing != null ? wearing.getNombre() : "");
+    return formatMe(25) + (wearing != null ? wearing.getName() : "");
   }
 
   private String formatMe(int length) {

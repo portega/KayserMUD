@@ -1,11 +1,15 @@
 package server;
 
+import static world.Player.StatType.HEALTH;
+import static world.Player.StatType.STAMINA;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+import world.Player.StatType;
 import world.Room;
 import world.Player;
 
@@ -72,12 +76,12 @@ public class PlayerThread extends Control {
 	}
 	
 	private String process_prompt() {
-		String txt = prompt.replaceAll("%h", player.getVida()+"");
-		txt = txt.replaceAll("%H", player.getMaxVida()+"");
-		txt = txt.replaceAll("%m", player.getMana()+"");
-		txt = txt.replaceAll("%M", player.getMaxMana()+"");
-		txt = txt.replaceAll("%v", player.getMove()+"");
-		txt = txt.replaceAll("%V", player.getMaxMove()+"");
+		String txt = prompt.replaceAll("%h", player.getCurrent(HEALTH)+"");
+		txt = txt.replaceAll("%H", player.getMax(HEALTH)+"");
+		txt = txt.replaceAll("%m", player.getCurrent(StatType.MANA)+"");
+		txt = txt.replaceAll("%M", player.getMax(StatType.MANA)+"");
+		txt = txt.replaceAll("%v", player.getCurrent(STAMINA)+"");
+		txt = txt.replaceAll("%V", player.getMax(STAMINA)+"");
 		
 		return txt;
 	}

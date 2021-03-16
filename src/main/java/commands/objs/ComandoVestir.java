@@ -39,7 +39,7 @@ public class ComandoVestir implements Comando {
             return "No puedes vestir eso";
         }
 
-        return "Te has equipado con "+obj.getNombre();
+        return "Te has equipado con "+obj.getName();
     }
 
 }

@@ -32,10 +32,10 @@ public class Container<T extends Template> {
 			objetos_vnum.put(vnum, v);
 		}
 		v.add(o);
-		o.setContenedor(owner);
+		o.setOwner(owner);
                 
                 // Guardamos tambien en el listado por nombre
-                String nombre = o.getNombre();
+                String nombre = o.getName();
                 v = objetos_nombre.get(nombre);
                 
                 if (v == null) {
@@ -136,7 +136,7 @@ public class Container<T extends Template> {
 		for (Integer vnum : objetos_vnum.keySet()) {
 			lista = objetos_vnum.get(vnum);
 			if (lista.size() > 1) txt += "("+lista.size()+") "; 
-			txt += lista.get(0).getDescripcion()+"\r\n";
+			txt += lista.get(0).getDescription()+"\r\n";
 		}
 		return txt;
 	}	
@@ -156,7 +156,7 @@ public class Container<T extends Template> {
 			o = v.get(0);
 			if (t.getVnum() != o.getVnum()) {
 				if (v.size() > 1) txt += "("+v.size()+") ";
-				txt += o.getDescripcion()+"\r\n";
+				txt += o.getDescription()+"\r\n";
 			}
 		}
 		return txt;

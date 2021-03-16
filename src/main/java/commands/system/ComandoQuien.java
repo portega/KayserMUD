@@ -16,7 +16,7 @@ public class ComandoQuien implements Comando {
                 txt += "Jugadores conectados"+ Constants.EOL;
                 txt += "-----------------------------------------"+ Constants.EOL;
                 for (Player p2 : l_players.values()) {
-                    txt += p2.getNombre()+ Constants.EOL;
+                    txt += p2.getName()+ Constants.EOL;
                 }
                 txt += "-----------------------------------------"+ Constants.EOL;
 		return txt;
