@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public abstract class Template {
-	private String name, description;
+	private String name, shortDescription, description;
 	private Template owner;
 	private int vnum;
 	//private HashMap<String, String> modificadors;

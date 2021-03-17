@@ -1,6 +1,7 @@
 package world;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Optional;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -34,6 +35,10 @@ public class Player extends Template {
   private int alignment; // no sé si es pot predefinir ja un rang alhora de crear-lo o es controla a posteriori
   private Player victim;
   private int damage;
+
+  private List<Affect> affects;
+
+
 
   public Player() {
     super();

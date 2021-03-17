@@ -12,7 +12,25 @@ public class Room extends Template {
   private HashMap<Direcciones, Room> salidas;
   private Container<Template> contenido;
   private Container<Player> habitantes;
-  private int moveCost = 1;
+  //private int moveCost = 1;
+  private Terrain terreno;
+
+  public class Terrain {
+    private enum Types {CIUDAD, BOSQUE, MONTANYA, CAMPO, DESIERTO, AIRE, AGUA, PANTANO, LABERINTO}
+
+    private Types Type;
+    private int moveCost;
+    private Comando.Skill skill_needed;
+    private Affect affec_needed;
+    private Item item_needed;
+
+    // per a que les funcions de move tinguin més fàcil a mirar si pots accedir a una room, o si és MAZE que miri si tens
+    // per exemple: MONTANYA trepar; AGUA nadar; AIRE Affect.fly
+    // i l'item per si et fa falta un passe o un objecte màgic per a passar
+
+    // torno a tenir el mateix problema que amb Species , vull tenir-ne uns de predefinits
+    // tipus pues CIUDAD 10; AGUA 25 nadar; LABERINTO 15 BRUJULA (vnum)
+  }
 
   public Room() {
     super();
@@ -20,6 +38,8 @@ public class Room extends Template {
     contenido = new Container<Template>(this);
     habitantes = new Container<Player>(this);
   }
+
+
 
   public Room(String name, String description) {
     this();
